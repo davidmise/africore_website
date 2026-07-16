@@ -1,0 +1,58 @@
+{
+  "company_name": "Africore Logistics",
+  "overview": "AFRICORE LOGISTICS is a Johannesburg-based supply chain solutions provider specializing in integrated logistics, customs clearance, and warehousing across Southern and Central Africa. With a strategic headquarters in South Africa's economic hub, the company facilitates seamless cross-border trade for businesses seeking reliable, efficient, and compliant freight movement. The company was founded to address the growing need for a coordinated logistics partner capable of navigating the region's diverse regulatory environments, infrastructure variances, and border complexities. Africore Logistics combines local expertise with a corridor-focused operational model to deliver end-to-end supply chain visibility and control.",
+  "mission": "To provide agile, transparent, and cost-effective logistics solutions that enable our clients to expand their reach across Africa's most dynamic markets.",
+  "vision": "To become the preferred integrated logistics partner for businesses trading along the Southern African Development Community (SADC) and beyond, recognized for operational excellence and corridor mastery.",
+  "operational_strength": {
+    "corridor_expertise": "Deep knowledge of each country's import/export regulations, documentation requirements, and infrastructure constraints. Africore Logistics pre-clears cargo where possible and uses bonded warehousing to streamline border crossings",
+    "integrated_supply_chain_solutions": "Clients benefit from a single point of contact for transport, clearance, and warehousing - eliminating the need to coordinate multiple vendors across different borders",
+    "warehousing_network": "Strategically located storage facilities near key border posts and economic zones, enabling buffer stock management and just-in-time delivery.",
+    "customs_compliance": "Experienced clearing teams handle SARS (South Africa), ZRA (Zambia), DGM (DRC), TRA (Tanzania), and other national authorities. Full compliance with SACU, SADC, and EAC trade protocols."
+  },
+  "geographical_footprints": {
+    "headquarters": "Johannesburg - Headquarters",
+    "description": "Africore Logistics operates along a dedicated logistics corridor connecting seven African nations.",
+    "corridor_countries": [
+      "South Africa",
+      "Namibia",
+      "Botswana",
+      "Zimbabwe",
+      "Mozambique",
+      "Zambia",
+      "Tanzania",
+      "Democratic Republic Of Congo (DRC)"
+    ],
+    "industries_served": [
+      "Mining & Minerals",
+      "Agriculture & Perishables",
+      "FMCG & Retail",
+      "Construction",
+      "Heavy & Equipments",
+      "Humanitarian Aid"
+    ]
+  },
+  "why_choose_africore": [
+    {
+      "challenge": "Complex customs procedures",
+      "solution": "Dedicated in-house clearance per corridor"
+    },
+    {
+      "challenge": "Unpredictable border delays",
+      "solution": "Pre-clearance and corridor-specific contingency routing"
+    },
+    {
+      "challenge": "Lack of real-time visibility",
+      "solution": "Daily tracking reports and proactive alerts"
+    },
+    {
+      "challenge": "Fragmented vendor management",
+      "solution": "Single point of contact for transport, customs, and warehousing"
+    }
+  ],
+  "contact_information": {
+    "phone": "+27 715826731",
+    "email": "info@africorelogistics.com",
+    "website": "www.africorelogistics.com"
+  },
+  "cover_page_title": "AFRICORE LOGISTICS"
+}

@@ -1,0 +1,301 @@
+{
+  "page": {
+    "id": "about",
+    "title": "About Us",
+    "path": "/about",
+    "type": "content-page",
+    "description": "Learn about Africore Logistics, our story, mission, vision, and the people driving integrated logistics across Southern and Central Africa."
+  },
+  "theme": {
+    "primaryColor": "#E3181F",
+    "secondaryColor": "#FFFFFF",
+    "accentColor": "#FCA311",
+    "neutralColor": "#F5F5F5",
+    "textColor": "#343A40",
+    "designStyle": "Modern Corporate Logistics",
+    "layout": "Responsive",
+    "sectionSpacing": "Large",
+    "decorativeElements": [
+      "Geometric swooshes",
+      "Diagonal dividers",
+      "Curved accent shapes",
+      "Subtle gradient overlays"
+    ]
+  },
+  "navigation": {
+    "sticky": true,
+    "background": "white",
+    "logo": {
+      "position": "left",
+      "type": "image",
+      "alt": "Africore Logistics Logo"
+    },
+    "menu": [
+      {
+        "label": "About Us",
+        "url": "/about",
+        "active": true
+      },
+      {
+        "label": "Our Services",
+        "url": "/services"
+      },
+      {
+        "label": "Geographies",
+        "url": "/corridors"
+      },
+      {
+        "label": "Industries",
+        "url": "/industries"
+      },
+      {
+        "label": "Why Us",
+        "url": "/why-africore"
+      },
+      {
+        "label": "Resources",
+        "url": "/resources"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Client Portal Login",
+        "url": "/portal",
+        "style": "outline",
+        "color": "primary"
+      },
+      {
+        "label": "Get a Quote",
+        "url": "/contact",
+        "style": "primary",
+        "color": "primary"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "type": "hero",
+      "order": 1,
+      "background": {
+        "type": "image",
+        "image": "warehouse-team-high-vis.jpg",
+        "overlay": true,
+        "overlayOpacity": 0.6
+      },
+      "content": {
+        "headline": "Who We Are",
+        "subHeadline": "Your trusted partner for integrated logistics, customs clearance, and warehousing across Southern and Central Africa."
+      },
+      "badge": {
+        "icon": "location",
+        "text": "Established in Johannesburg, South Africa"
+      }
+    },
+    {
+      "id": "company-overview",
+      "type": "split-section",
+      "order": 2,
+      "layout": {
+        "imagePosition": "left",
+        "contentPosition": "right"
+      },
+      "image": {
+        "src": "johannesburg-headquarters.jpg",
+        "alt": "Johannesburg Skyline",
+        "caption": "Headquarters: South Africa's Economic Hub"
+      },
+      "decorations": {
+        "accentShape": "geometric-overlay",
+        "accentColor": "#FCA311"
+      },
+      "content": {
+        "sectionLabel": "Company Overview",
+        "headline": "Operational Excellence with a Corridor-Focused Mindset",
+        "paragraphs": [
+          "Founded to address the growing need for a coordinated logistics partner capable of navigating the region's diverse regulatory environments, infrastructure variances, and border complexities.",
+          "By combining deep local expertise with a corridor-focused operational model, we deliver end-to-end supply chain visibility and control for businesses operating across Southern and Central Africa."
+        ]
+      }
+    },
+    {
+      "id": "core-philosophy",
+      "type": "feature-grid",
+      "order": 3,
+      "headline": "Our Core Philosophy",
+      "layout": {
+        "columns": 3,
+        "responsive": true
+      },
+      "items": [
+        {
+          "title": "Integrated Solutions",
+          "icon": "network",
+          "description": "Specializing in integrated logistics, customs clearance, and warehousing."
+        },
+        {
+          "title": "Regional Mastery",
+          "icon": "map",
+          "description": "Deep local expertise navigating diverse regulatory environments and infrastructure variances."
+        },
+        {
+          "title": "Visibility & Control",
+          "icon": "eye",
+          "description": "Corridor-focused operational model delivering complete end-to-end supply chain visibility."
+        }
+      ]
+    },
+    {
+      "id": "mission-vision",
+      "type": "card-grid",
+      "order": 4,
+      "background": "#F5F5F5",
+      "headline": "Our Guiding Mission & Vision",
+      "layout": {
+        "columns": 2,
+        "cardStyle": "elevated"
+      },
+      "cards": [
+        {
+          "title": "Our Mission",
+          "icon": "target",
+          "iconColor": "#E3181F",
+          "description": "To provide agile, transparent, and cost-effective logistics solutions that enable our clients to expand their reach across Africa's most dynamic markets."
+        },
+        {
+          "title": "Our Vision",
+          "icon": "compass",
+          "iconColor": "#E3181F",
+          "description": "To become the preferred integrated logistics partner for businesses trading throughout the Southern African Development Community (SADC) and beyond, recognized for operational excellence and corridor mastery."
+        }
+      ]
+    },
+    {
+      "id": "leadership",
+      "type": "team-grid",
+      "order": 5,
+      "optional": true,
+      "headline": "Meet the Team Behind the Corridors",
+      "description": "Experienced logistics professionals dedicated to delivering reliable, compliant, and efficient cross-border supply chain solutions.",
+      "layout": {
+        "columns": 3
+      },
+      "members": [
+        {
+          "name": "Leadership Member",
+          "position": "Managing Director",
+          "image": "placeholder-1.jpg",
+          "bio": "Experienced logistics leader with extensive expertise across the SADC region."
+        },
+        {
+          "name": "Leadership Member",
+          "position": "Operations Director",
+          "image": "placeholder-2.jpg",
+          "bio": "Specialist in customs compliance, transport coordination, and operational excellence."
+        },
+        {
+          "name": "Leadership Member",
+          "position": "Commercial Director",
+          "image": "placeholder-3.jpg",
+          "bio": "Focused on delivering client-centric logistics solutions and long-term partnerships."
+        }
+      ]
+    },
+    {
+      "id": "cta-banner",
+      "type": "call-to-action",
+      "order": 6,
+      "background": "#E3181F",
+      "content": {
+        "headline": "Ready to Streamline Your Cross-Border Supply Chain?",
+        "description": "Partner with Africore Logistics for reliable transport, customs clearance, and warehousing solutions across Southern and Central Africa."
+      },
+      "button": {
+        "label": "Contact Our Logistics Experts",
+        "url": "/contact",
+        "style": "light"
+      }
+    }
+  ],
+  "footer": {
+    "layout": "4-columns",
+    "columns": [
+      {
+        "title": "Africore Logistics",
+        "logo": true,
+        "tagline": "Your corridor logistics partner."
+      },
+      {
+        "title": "Quick Links",
+        "links": [
+          {
+            "label": "Services",
+            "url": "/services"
+          },
+          {
+            "label": "About Us",
+            "url": "/about"
+          },
+          {
+            "label": "Industries",
+            "url": "/industries"
+          },
+          {
+            "label": "Geographies",
+            "url": "/corridors"
+          }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          {
+            "label": "Terms of Service",
+            "url": "/terms"
+          },
+          {
+            "label": "Privacy Policy",
+            "url": "/privacy"
+          },
+          {
+            "label": "Client Portal Login",
+            "url": "/portal"
+          }
+        ]
+      },
+      {
+        "title": "Contact",
+        "contact": {
+          "phone": "+27 715826731",
+          "email": "info@africorelogistics.com",
+          "website": "https://www.africorelogistics.com",
+          "headquarters": "Johannesburg, South Africa"
+        }
+      }
+    ],
+    "bottomBar": {
+      "text": "© 2026 Africore Logistics. All rights reserved."
+    }
+  },
+  "seo": {
+    "title": "About Africore Logistics | Cross-Border Logistics Experts",
+    "description": "Learn about Africore Logistics, our mission, vision, operational philosophy, and commitment to delivering seamless logistics solutions throughout Southern and Central Africa.",
+    "keywords": [
+      "About Africore Logistics",
+      "Johannesburg Logistics Company",
+      "SADC Logistics",
+      "Cross Border Transport",
+      "Integrated Logistics",
+      "Customs Clearance",
+      "Warehousing",
+      "Supply Chain Experts"
+    ]
+  },
+  "animations": {
+    "scrollReveal": true,
+    "cardHover": true,
+    "imageParallax": true,
+    "counterAnimations": false,
+    "pageTransitions": true
+  }
+}

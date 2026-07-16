@@ -1,0 +1,348 @@
+{
+  "page": {
+    "id": "home",
+    "title": "Home",
+    "path": "/",
+    "type": "landing-page",
+    "description": "Africore Logistics homepage designed to showcase services, geographic reach, operational strengths, and drive quote requests."
+  },
+  "theme": {
+    "primaryColor": "#C62828",
+    "secondaryColor": "#FFFFFF",
+    "accentColor": "#F5A623",
+    "neutralColor": "#F4F4F4",
+    "textColor": "#333333",
+    "designStyle": "Modern Corporate Logistics",
+    "buttonStyle": "Rounded",
+    "layout": "Responsive"
+  },
+  "navigation": {
+    "sticky": true,
+    "background": "white",
+    "logo": {
+      "position": "left",
+      "type": "image",
+      "alt": "Africore Logistics Logo"
+    },
+    "menu": [
+      {
+        "label": "About Us",
+        "url": "/about"
+      },
+      {
+        "label": "Our Services",
+        "url": "/services"
+      },
+      {
+        "label": "Geographies",
+        "url": "/corridors"
+      },
+      {
+        "label": "Industries",
+        "url": "/industries"
+      },
+      {
+        "label": "Why Us",
+        "url": "/why-africore"
+      },
+      {
+        "label": "Resources",
+        "url": "/resources"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Client Portal Login",
+        "url": "/portal",
+        "style": "outline",
+        "color": "red"
+      },
+      {
+        "label": "Get a Quote",
+        "url": "/contact",
+        "style": "solid",
+        "color": "red"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "type": "hero",
+      "order": 1,
+      "background": {
+        "type": "image",
+        "image": "container-ship-truck-sunset.jpg",
+        "overlay": true,
+        "overlayOpacity": 0.55
+      },
+      "content": {
+        "headline": "Agile, Transparent & Cost-Effective Logistics Across Southern and Central Africa.",
+        "subHeadline": "Your single point of contact for seamless cross-border freight, customs clearance, and warehousing."
+      },
+      "buttons": [
+        {
+          "label": "Get a Quote",
+          "url": "/contact",
+          "style": "primary"
+        },
+        {
+          "label": "Explore Our Corridors",
+          "url": "/corridors",
+          "style": "secondary"
+        }
+      ]
+    },
+    {
+      "id": "operational-pillars",
+      "type": "feature-grid",
+      "order": 2,
+      "title": "Our Operational Pillars",
+      "layout": {
+        "columns": 4,
+        "responsive": true
+      },
+      "items": [
+        {
+          "title": "Corridor Expertise",
+          "icon": "map-pin",
+          "description": "Navigating complex import/export regulations across seven African nations."
+        },
+        {
+          "title": "Integrated Supply Chain",
+          "icon": "network",
+          "description": "Single point of contact for transport, customs clearance, and warehousing."
+        },
+        {
+          "title": "Warehousing Network",
+          "icon": "warehouse",
+          "description": "Strategically located storage near key border posts and trade corridors."
+        },
+        {
+          "title": "Customs Compliance",
+          "icon": "clipboard-check",
+          "description": "In-house experts managing SARS, ZRA, DGM, and TRA compliance."
+        }
+      ]
+    },
+    {
+      "id": "about-preview",
+      "type": "split-section",
+      "order": 3,
+      "layout": {
+        "textPosition": "left",
+        "imagePosition": "right"
+      },
+      "image": {
+        "src": "africore-team.jpg",
+        "alt": "Africore Logistics Team"
+      },
+      "content": {
+        "headline": "Seamless Cross-Border Trade",
+        "description": "Headquartered in Johannesburg, Africore Logistics was established to solve infrastructure and regulatory complexities across Southern and Central Africa through integrated logistics, customs clearance, and warehousing."
+      },
+      "button": {
+        "label": "Read Our Story",
+        "url": "/about"
+      }
+    },
+    {
+      "id": "corridor-map",
+      "type": "map-section",
+      "order": 4,
+      "background": "light",
+      "headline": "Connecting Seven African Nations",
+      "description": "Our dedicated logistics corridor and strategically positioned warehouses ensure your cargo reaches every destination efficiently.",
+      "map": {
+        "type": "interactive",
+        "headquarters": {
+          "city": "Johannesburg",
+          "country": "South Africa"
+        },
+        "countries": [
+          "South Africa",
+          "Namibia",
+          "Botswana",
+          "Zimbabwe",
+          "Mozambique",
+          "Zambia",
+          "Tanzania",
+          "Democratic Republic of Congo"
+        ]
+      },
+      "button": {
+        "label": "See Our Full Footprint",
+        "url": "/corridors"
+      }
+    },
+    {
+      "id": "industries",
+      "type": "carousel",
+      "order": 5,
+      "headline": "Delivering For Every Sector",
+      "items": [
+        {
+          "title": "Mining & Minerals",
+          "image": "mining.jpg"
+        },
+        {
+          "title": "Agriculture & Perishables",
+          "image": "agriculture.jpg"
+        },
+        {
+          "title": "FMCG & Retail",
+          "image": "fmcg.jpg"
+        },
+        {
+          "title": "Construction",
+          "image": "construction.jpg"
+        },
+        {
+          "title": "Heavy Equipment",
+          "image": "heavy-equipment.jpg"
+        },
+        {
+          "title": "Humanitarian Aid",
+          "image": "humanitarian.jpg"
+        }
+      ]
+    },
+    {
+      "id": "why-africore",
+      "type": "comparison",
+      "order": 6,
+      "headline": "Why Choose Africore?",
+      "layout": {
+        "columns": 2
+      },
+      "leftColumn": {
+        "title": "Industry Challenges",
+        "items": [
+          "Complex customs procedures",
+          "Border delays",
+          "Limited shipment visibility",
+          "Fragmented vendor management"
+        ]
+      },
+      "rightColumn": {
+        "title": "Our Solutions",
+        "items": [
+          "Dedicated in-house customs clearance teams",
+          "Pre-clearance and contingency routing",
+          "Daily tracking reports and proactive alerts",
+          "Single point of contact throughout the supply chain"
+        ]
+      },
+      "button": {
+        "label": "Start Your Shipment Journey Now",
+        "url": "/contact"
+      }
+    },
+    {
+      "id": "mission-vision",
+      "type": "cards",
+      "order": 7,
+      "headline": "Our Purpose",
+      "layout": {
+        "columns": 2
+      },
+      "cards": [
+        {
+          "title": "Mission",
+          "icon": "target",
+          "description": "To provide agile, transparent, and cost-effective logistics solutions that enable our clients to expand their reach across Africa's most dynamic markets."
+        },
+        {
+          "title": "Vision",
+          "icon": "compass",
+          "description": "To become the preferred integrated logistics partner for businesses trading throughout the SADC region and beyond, recognized for operational excellence and corridor mastery."
+        }
+      ]
+    },
+    {
+      "id": "tracking-banner",
+      "type": "highlight-banner",
+      "order": 8,
+      "background": "primary",
+      "headline": "Gain Complete Control of Your Cargo",
+      "description": "Access Daily Tracking Reports and Proactive Real-Time Alerts through our secure client portal.",
+      "button": {
+        "label": "How Our Client Portal Works",
+        "url": "/portal"
+      }
+    }
+  ],
+  "footer": {
+    "layout": "4-columns",
+    "columns": [
+      {
+        "title": "Africore Logistics",
+        "logo": true,
+        "tagline": "Your corridor logistics partner."
+      },
+      {
+        "title": "Quick Links",
+        "links": [
+          {
+            "label": "Services",
+            "url": "/services"
+          },
+          {
+            "label": "About Us",
+            "url": "/about"
+          },
+          {
+            "label": "Industries",
+            "url": "/industries"
+          },
+          {
+            "label": "Geographies",
+            "url": "/corridors"
+          }
+        ]
+      },
+      {
+        "title": "Legal & Support",
+        "links": [
+          {
+            "label": "Terms of Service",
+            "url": "/terms"
+          },
+          {
+            "label": "Privacy Policy",
+            "url": "/privacy"
+          },
+          {
+            "label": "Client Portal Login",
+            "url": "/portal"
+          }
+        ]
+      },
+      {
+        "title": "Contact",
+        "contact": {
+          "phone": "+27 715826731",
+          "email": "info@africorelogistics.com",
+          "website": "https://www.africorelogistics.com",
+          "headquarters": "Johannesburg, South Africa"
+        }
+      }
+    ],
+    "copyright": "© 2026 Africore Logistics. All rights reserved."
+  },
+  "seo": {
+    "title": "Africore Logistics | Cross-Border Logistics Across Southern & Central Africa",
+    "description": "Africore Logistics delivers integrated logistics, customs clearance, warehousing, and cross-border freight solutions throughout Southern and Central Africa.",
+    "keywords": [
+      "Africore Logistics",
+      "Cross Border Freight",
+      "Customs Clearance",
+      "Warehousing",
+      "Africa Logistics",
+      "Supply Chain",
+      "Johannesburg Logistics",
+      "SADC Logistics",
+      "Freight Forwarding"
+    ]
+  }
+}

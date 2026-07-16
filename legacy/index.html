@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mivora — Eco‑Supply</title>
+
+    <!-- Tailwind + Alpine + Fonts -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-pill {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 80%);
+        }
+
+        .hero-card {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .tab-content img {
+            transition: opacity 0.25s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-white antialiased">
+
+    <!-- ============================================================
+    PHASE 1 – FLOATING NAVIGATION HEADER
+    ============================================================ -->
+    <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 pointer-events-none">
+        <nav class="
+        flex items-center justify-between
+        w-full max-w-7xl mx-4
+        px-6 py-3
+        bg-white/85 backdrop-blur-lg
+        rounded-full
+        border border-white/30
+        shadow-lg
+        pointer-events-auto
+        ">
+
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-3 flex-shrink-0">
+                <img src="/img/africore_dark_font.png" alt="Africore Logistics" class="h-10 w-auto" />
+                <!-- 
+            <div class="leading-tight">
+                <h1 class="font-bold text-lg text-gray-900">
+                    Africore
+                </h1>
+                <span class="text-xs uppercase tracking-[0.25em] text-red-600 font-semibold">
+                    Logistics
+                </span>
+            </div> -->
+            </a>
+
+            <!-- Navigation -->
+            <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-700">
+
+                <a href="/" class="hover:text-red-600 transition-colors">
+                    Home
+                </a>
+
+                <a href="/about" class="hover:text-red-600 transition-colors">
+                    About Us
+                </a>
+
+                <!-- Services Dropdown -->
+                <div class="relative group">
+
+                    <button class="flex items-center gap-1 hover:text-red-600 transition-colors">
+
+                        Our Services
+
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+
+                    </button>
+
+                    <div
+                        class="absolute left-0 mt-4 w-72 rounded-2xl bg-white shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+
+                        <a href="/services/corridor-expertise" class="block px-5 py-3 hover:bg-gray-50">
+                            Corridor Expertise
+                        </a>
+
+                        <a href="/services/integrated-supply-chain" class="block px-5 py-3 hover:bg-gray-50">
+                            Integrated Supply Chain
+                        </a>
+
+                        <a href="/services/warehousing-network" class="block px-5 py-3 hover:bg-gray-50">
+                            Warehousing Network
+                        </a>
+
+                        <a href="/services/customs-compliance" class="block px-5 py-3 hover:bg-gray-50 rounded-b-2xl">
+                            Customs Compliance
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a href="/corridors" class="hover:text-red-600 transition-colors">
+                    Geographic Footprints
+                </a>
+
+                <a href="/industries" class="hover:text-red-600 transition-colors">
+                    Industries
+                </a>
+
+                <a href="/why-africore" class="hover:text-red-600 transition-colors">
+                    Why Africore
+                </a>
+
+                <a href="/resources" class="hover:text-red-600 transition-colors">
+                    Resources
+                </a>
+
+            </div>
+
+            <!-- Right Actions -->
+            <div class="hidden md:flex items-center gap-3">
+
+                <!-- Secondary CTA -->
+                <a href="/portal" class="
+                px-5 py-2.5
+                text-sm font-semibold
+                border border-red-600
+                text-red-600
+                rounded-full
+                hover:bg-red-50
+                transition">
+
+                    Client Portal
+
+                </a>
+
+                <!-- Primary CTA -->
+                <a href="/contact" class="
+                px-6 py-2.5
+                text-sm font-semibold
+                text-white
+                bg-red-600
+                hover:bg-red-700
+                rounded-full
+                transition
+                shadow-lg">
+
+                    Get a Quote
+
+                    <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+
+                </a>
+
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-2xl text-gray-700">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </nav>
+    </header>
+
+    <!-- ============================================================
+    PHASE 2 – FULL‑SCREEN HERO
+    ============================================================ -->
+    <main>
+
+        <section class="relative min-h-screen flex items-center overflow-hidden">
+            <!-- Background image with dark gradient overlay -->
+            <div class="absolute inset-0 -z-10">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&h=900&fit=crop&auto=format"
+                    alt="Sustainable logistics background" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 hero-overlay"></div>
+            </div>
+
+            <!-- Container for content -->
+            <div class="relative w-full max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-32">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+                    <!-- LEFT CONTENT (cols 1‑7) -->
+                    <div class="lg:col-span-7 text-white space-y-8">
+                        <h1
+                            class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight">
+                            Smart, green<br />
+                            <span class="text-emerald-300">supply chains</span>
+                        </h1>
+                        <p class="text-lg md:text-xl max-w-xl text-white/80 leading-relaxed">
+                            We are pioneers in sustainable logistics, delivering smart and
+                            efficient supply chain solutions that minimize environmental impact
+                            and maximize value for businesses worldwide.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="#"
+                                class="inline-flex items-center px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-full transition shadow-lg hover:shadow-emerald-500/30">
+                                Get a green quote
+                                <i class="fa-regular fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#"
+                                class="inline-flex items-center px-8 py-4 border border-white/30 hover:border-white/60 text-white font-medium rounded-full transition backdrop-blur-sm">
+                                Learn more
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT SIDE (empty) -->
+                    <div class="lg:col-span-5 relative"></div>
+                </div>
+
+                <!-- OVERLAPPING WHITE CARD (bottom‑right) -->
+                <div class="
+        absolute bottom-8 right-6 lg:bottom-12 lg:right-12
+        w-full max-w-sm md:max-w-md
+        bg-white/95 backdrop-blur-sm
+        rounded-2xl
+        hero-card
+        p-6
+        border border-white/20
+        ">
+                    <div class="flex flex-col sm:flex-row gap-6 items-center">
+                        <div class="flex-1 space-y-4">
+                            <div class="flex items-center justify-between border-b border-gray-100 pb-2">
+                                <span class="text-sm font-medium text-gray-500">CO₂ reduction</span>
+                                <span class="text-xl font-bold text-emerald-600">40%</span>
+                            </div>
+                            <div class="flex items-center justify-between border-b border-gray-100 pb-2">
+                                <span class="text-sm font-medium text-gray-500">Fuel cost saved</span>
+                                <span class="text-xl font-bold text-emerald-600">35%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium text-gray-500">Annual CO₂ saved</span>
+                                <span class="text-xl font-bold text-emerald-600">500+ tons</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=120&h=120&fit=crop&auto=format"
+                                alt="Solar panel" class="w-24 h-24 md:w-28 md:h-28 rounded-xl object-cover shadow-md" />
+                        </div>
+                    </div>
+                    <div class="mt-4 text-xs text-gray-400 text-center border-t border-gray-100 pt-3">
+                        <i class="fa-regular fa-circle-check text-emerald-500 mr-1"></i> Real‑world impact
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+PHASE 3 – BUILDING SMARTER … (INDUSTRY TABS)
+============================================================ -->
+        <section class="py-20 md:py-28 bg-gray-50/80">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+                <!-- Section header -->
+                <div class="text-center mb-14">
+                    <span
+                        class="inline-block text-emerald-600 text-sm font-semibold tracking-widest uppercase bg-emerald-50 px-4 py-1.5 rounded-full">
+                        <i class="fa-regular fa-building mr-2"></i> By industry
+                    </span>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mt-4 leading-tight">
+                        Building smarter <br class="sm:hidden" />
+                        <span class="text-emerald-600">supply chains</span>
+                    </h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto mt-3 text-lg">
+                        Tailored, sustainable logistics for every sector — powered by data and green innovation.
+                    </p>
+                </div>
+
+                <!-- Alpine.js tabs container -->
+                <div x-data="{
+        activeTab: 'retail',
+        tabs: {
+        retail: {
+        label: 'Retail & E‑commerce',
+        title: 'Last‑mile efficiency, zero waste',
+        desc: 'Optimise delivery routes, reduce returns, and cut emissions with our AI‑driven retail logistics. From urban hubs to rural doorsteps — green delivery that delights customers.',
+        image: 'https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=800&h=500&fit=crop&auto=format'
+        },
+        manufacturing: {
+        label: 'Manufacturing',
+        title: 'Lean, green production lines',
+        desc: 'Streamline inbound raw materials and outbound finished goods. Our smart routing and load‑matching reduce fuel use by up to 35% across your factory network.',
+        image: 'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800&h=500&fit=crop&auto=format'
+        },
+        tech: {
+        label: 'Technology & Data',
+        title: 'Data‑driven carbon accounting',
+        desc: 'Real‑time visibility and predictive analytics help you measure, report, and shrink your Scope 3 emissions. Turn compliance into competitive advantage.',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&auto=format'
+        },
+        food: {
+        label: 'Food & Beverage',
+        title: 'Cold chain, minus the carbon',
+        desc: 'Maintain freshness and safety with our solar‑assisted cold storage and optimised temperature‑controlled routes. Reduce spoilage and energy use simultaneously.',
+        image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=500&fit=crop&auto=format'
+        }
+        }
+        }">
+
+                    <!-- Tab buttons -->
+                    <div class="flex flex-wrap justify-center gap-3 mb-12">
+                        <template x-for="(tab, key) in tabs" :key="key">
+                            <button @click="activeTab = key" :class="{
+                'bg-emerald-600 text-white shadow-lg shadow-emerald-200': activeTab === key,
+                'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200': activeTab !== key
+                }" class="px-6 py-2.5 rounded-full font-medium transition-all duration-200 text-sm md:text-base">
+                                <span x-text="tab.label"></span>
+                            </button>
+                        </template>
+                    </div>
+
+                    <!-- Tab content: image + text side by side -->
+                    <div
+                        class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center bg-white rounded-3xl shadow-lg p-6 md:p-10 border border-gray-100/80">
+                        <!-- Image (changes with x-show) -->
+                        <div class="order-1 lg:order-none tab-content">
+                            <template x-for="(tab, key) in tabs" :key="key">
+                                <img :src="tab.image" :alt="tab.label" x-show="activeTab === key"
+                                    class="w-full h-64 md:h-80 object-cover rounded-2xl shadow-md"
+                                    x-transition:enter.duration.300ms />
+                            </template>
+                        </div>
+
+                        <!-- Text (changes with x-show) -->
+                        <div class="order-2 lg:order-none space-y-4">
+                            <template x-for="(tab, key) in tabs" :key="key">
+                                <div x-show="activeTab === key" x-transition:enter.duration.300ms>
+                                    <div
+                                        class="inline-block bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                                        <i class="fa-regular fa-tag mr-1.5"></i> <span x-text="tab.label"></span>
+                                    </div>
+                                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mt-3" x-text="tab.title">
+                                    </h3>
+                                    <p class="text-gray-600 leading-relaxed text-base md:text-lg mt-2"
+                                        x-text="tab.desc"></p>
+                                    <a href="#"
+                                        class="inline-flex items-center gap-2 text-emerald-600 font-semibold mt-4 hover:text-emerald-700 transition">
+                                        Learn more <i class="fa-regular fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Alpine.js ready -->
+    <div x-data="{ loaded: true }" x-init="console.log('Alpine.js ready ✅')" class="hidden"></div>
+
+</body>
+
+</html>

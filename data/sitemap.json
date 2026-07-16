@@ -1,0 +1,323 @@
+{
+  "website": {
+    "companyName": "Africore Logistics",
+    "websiteUrl": "https://www.africorelogistics.com",
+    "industry": "Logistics and Supply Chain",
+    "headquarters": {
+      "city": "Johannesburg",
+      "country": "South Africa"
+    },
+    "branding": {
+      "colorPalette": {
+        "primary": "Corporate Red",
+        "secondary": "White",
+        "accent": "Orange/Yellow"
+      },
+      "imagery": [
+        "Container ships",
+        "Freight trucks",
+        "Warehouse operations",
+        "Border clearance activities",
+        "Supply chain management personnel"
+      ],
+      "ctaButtons": [
+        "Get a Corridor Quote",
+        "Request Customs Clearance Support",
+        "Track Your Shipment",
+        "Get a Quote",
+        "Contact Us"
+      ]
+    }
+  },
+  "sitemap": [
+    {
+      "id": "home",
+      "title": "Home",
+      "path": "/",
+      "type": "landing-page",
+      "sections": [
+        {
+          "type": "hero",
+          "headline": "Agile, transparent, and cost-effective logistics across Southern and Central Africa.",
+          "backgroundImage": "container-ship-transport",
+          "primaryCTA": "Get a Quote",
+          "secondaryCTA": "Contact Us"
+        },
+        {
+          "type": "services-summary",
+          "title": "Core Offerings",
+          "items": [
+            "Integrated Logistics",
+            "Customs Clearance",
+            "Warehousing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "title": "About Us",
+      "path": "/about",
+      "sections": [
+        {
+          "id": "company-overview",
+          "title": "Company Overview",
+          "content": {
+            "history": "Founded to address regulatory and border complexities across Southern and Central Africa.",
+            "origin": "Johannesburg-based strategic headquarters.",
+            "corePhilosophy": "Corridor-focused operational model delivering end-to-end visibility."
+          }
+        },
+        {
+          "id": "mission-vision",
+          "title": "Mission & Vision",
+          "content": {
+            "mission": "To provide agile, transparent, and cost-effective logistics.",
+            "vision": "To become the preferred integrated logistics partner in the SADC region."
+          }
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "title": "Our Services",
+      "path": "/services",
+      "type": "dropdown-navigation",
+      "children": [
+        {
+          "id": "corridor-expertise",
+          "title": "Corridor Expertise",
+          "path": "/services/corridor-expertise",
+          "features": [
+            "Import/export regulatory expertise",
+            "Documentation management",
+            "Cross-border infrastructure knowledge",
+            "Pre-clearance services",
+            "Bonded warehousing"
+          ]
+        },
+        {
+          "id": "integrated-supply-chain",
+          "title": "Integrated Supply Chain",
+          "path": "/services/integrated-supply-chain",
+          "features": [
+            "Single point of contact",
+            "Transport management",
+            "Customs clearance",
+            "Warehousing services",
+            "Cross-border coordination"
+          ]
+        },
+        {
+          "id": "warehousing-network",
+          "title": "Warehousing Network",
+          "path": "/services/warehousing-network",
+          "features": [
+            "Strategic storage locations",
+            "Border-post warehousing",
+            "Economic zone facilities",
+            "Buffer stock management",
+            "Just-In-Time delivery"
+          ]
+        },
+        {
+          "id": "customs-compliance",
+          "title": "Customs Compliance",
+          "path": "/services/customs-compliance",
+          "features": [
+            "In-house clearing teams",
+            "SARS compliance",
+            "ZRA compliance",
+            "DGM compliance",
+            "TRA compliance",
+            "SACU protocols",
+            "SADC protocols",
+            "EAC protocols"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "corridors",
+      "title": "Geographic Footprints",
+      "path": "/corridors",
+      "sections": [
+        {
+          "type": "interactive-map",
+          "title": "Our Logistics Corridors",
+          "headquarters": {
+            "city": "Johannesburg",
+            "country": "South Africa"
+          },
+          "countriesServed": [
+            {
+              "name": "South Africa",
+              "role": "Headquarters"
+            },
+            {
+              "name": "Namibia",
+              "role": "Operational Corridor"
+            },
+            {
+              "name": "Botswana",
+              "role": "Operational Corridor"
+            },
+            {
+              "name": "Zimbabwe",
+              "role": "Operational Corridor"
+            },
+            {
+              "name": "Mozambique",
+              "role": "Operational Corridor"
+            },
+            {
+              "name": "Zambia",
+              "role": "Operational Corridor"
+            },
+            {
+              "name": "Tanzania",
+              "role": "Operational Corridor"
+            },
+            {
+              "name": "Democratic Republic of Congo",
+              "shortName": "DRC",
+              "role": "Operational Corridor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "industries",
+      "title": "Industries Served",
+      "path": "/industries",
+      "industries": [
+        {
+          "name": "Mining & Minerals"
+        },
+        {
+          "name": "Agriculture & Perishables"
+        },
+        {
+          "name": "FMCG & Retail"
+        },
+        {
+          "name": "Construction"
+        },
+        {
+          "name": "Heavy Equipment"
+        },
+        {
+          "name": "Humanitarian Aid"
+        }
+      ]
+    },
+    {
+      "id": "why-africore",
+      "title": "Why Choose Africore",
+      "path": "/why-africore",
+      "sections": [
+        {
+          "challenge": "Complex customs procedures",
+          "solution": "Dedicated in-house clearance teams per corridor."
+        },
+        {
+          "challenge": "Unpredictable border delays",
+          "solution": "Pre-clearance services and contingency routing."
+        },
+        {
+          "challenge": "Lack of real-time visibility",
+          "solution": "Daily tracking reports and proactive alerts."
+        },
+        {
+          "challenge": "Fragmented vendor management",
+          "solution": "Single point of contact across the supply chain."
+        }
+      ]
+    },
+    {
+      "id": "resources",
+      "title": "Resources & Insights",
+      "path": "/resources",
+      "optional": true,
+      "categories": [
+        {
+          "name": "Customs Regulation Updates"
+        },
+        {
+          "name": "Cross-Border Trade Logistics Tips"
+        },
+        {
+          "name": "Mining Case Studies"
+        },
+        {
+          "name": "Agriculture Case Studies"
+        },
+        {
+          "name": "FMCG Case Studies"
+        }
+      ]
+    },
+    {
+      "id": "client-portal",
+      "title": "Client Portal",
+      "path": "/portal",
+      "requiresAuthentication": true,
+      "features": [
+        "Secure Login",
+        "Shipment Tracking",
+        "Daily Tracking Reports",
+        "Real-Time Alerts",
+        "Shipment Status Dashboard"
+      ]
+    },
+    {
+      "id": "contact",
+      "title": "Contact Us",
+      "path": "/contact",
+      "contactDetails": {
+        "phone": "+27 715826731",
+        "email": "info@africorelogistics.com",
+        "website": "https://www.africorelogistics.com",
+        "address": {
+          "city": "Johannesburg",
+          "country": "South Africa"
+        }
+      },
+      "features": [
+        "Contact Form",
+        "Quote Request Form",
+        "General Inquiry Form"
+      ]
+    }
+  ],
+  "navigation": {
+    "headerMenu": [
+      "Home",
+      "About Us",
+      "Services",
+      "Geographic Footprints",
+      "Industries Served",
+      "Why Choose Africore",
+      "Resources",
+      "Client Portal",
+      "Contact Us"
+    ]
+  },
+  "seo": {
+    "siteTitle": "Africore Logistics | Integrated Logistics Across Southern & Central Africa",
+    "siteDescription": "Africore Logistics provides integrated logistics, customs clearance, warehousing, and cross-border transport solutions across Southern and Central Africa.",
+    "keywords": [
+      "Africore Logistics",
+      "Cross Border Logistics",
+      "Customs Clearance",
+      "Warehousing",
+      "Supply Chain Management",
+      "SADC Logistics",
+      "Freight Forwarding",
+      "Transport Solutions",
+      "Johannesburg Logistics",
+      "Africa Trade Corridors"
+    ]
+  }
+}

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Africore logistics</title>
+
+    <!-- Tailwind + Alpine + Fonts -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-pill {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 80%);
+        }
+
+        .hero-card {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .tab-content img {
+            transition: opacity 0.25s ease;
+        }
+    </style>
+</head>
+
+ <!-- <body class="bg-white antialiased">  -->
+ <body   class="bg-[#f5f5f7] text-[#1e1e2a]">
+
+    <!-- ============================================================
+    PHASE 1 – FLOATING NAVIGATION HEADER
+    ============================================================ -->
+    <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 pointer-events-none">
+        <nav class="
+        flex items-center justify-between
+        w-full max-w-7xl mx-4
+        px-6 py-3
+        bg-white/85 backdrop-blur-lg
+        rounded-full
+        border border-white/30
+        shadow-lg
+        pointer-events-auto
+        ">
+
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-3 flex-shrink-0">
+                <img src="/img/africore_dark_font.png" alt="Africore Logistics" class="h-10 w-auto" />
+                <!-- 
+            <div class="leading-tight">
+                <h1 class="font-bold text-lg text-gray-900">
+                    Africore
+                </h1>
+                <span class="text-xs uppercase tracking-[0.25em] text-red-600 font-semibold">
+                    Logistics
+                </span>
+            </div> -->
+            </a>
+
+            <!-- Navigation -->
+            <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-700">
+
+                <a href="/" class="hover:text-red-600 transition-colors">
+                    Home
+                </a>
+
+                <a href="/about" class="hover:text-red-600 transition-colors">
+                    About Us
+                </a>
+
+                <!-- Services Dropdown -->
+                <div class="relative group">
+
+                    <button class="flex items-center gap-1 hover:text-red-600 transition-colors">
+
+                        Our Services
+
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+
+                    </button>
+
+                    <div
+                        class="absolute left-0 mt-4 w-72 rounded-2xl bg-white shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+
+                        <a href="/services/corridor-expertise" class="block px-5 py-3 hover:bg-gray-50">
+                            Corridor Expertise
+                        </a>
+
+                        <a href="/services/integrated-supply-chain" class="block px-5 py-3 hover:bg-gray-50">
+                            Integrated Supply Chain
+                        </a>
+
+                        <a href="/services/warehousing-network" class="block px-5 py-3 hover:bg-gray-50">
+                            Warehousing Network
+                        </a>
+
+                        <a href="/services/customs-compliance" class="block px-5 py-3 hover:bg-gray-50 rounded-b-2xl">
+                            Customs Compliance
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a href="/corridors" class="hover:text-red-600 transition-colors">
+                    Geographic Footprints
+                </a>
+
+                <a href="/industries" class="hover:text-red-600 transition-colors">
+                    Industries
+                </a>
+
+                <a href="/why-africore" class="hover:text-red-600 transition-colors">
+                    Why Africore
+                </a>
+
+                <a href="/resources" class="hover:text-red-600 transition-colors">
+                    Resources
+                </a>
+
+            </div>
+
+            <!-- Right Actions -->
+            <div class="hidden md:flex items-center gap-3">
+
+                <!-- Secondary CTA -->
+                <a href="/portal" class="
+                px-5 py-2.5
+                text-sm font-semibold
+                border border-red-600
+                text-red-600
+                rounded-full
+                hover:bg-red-50
+                transition">
+
+                    Client Portal
+
+                </a>
+
+                <!-- Primary CTA -->
+                <a href="/contact" class="
+                px-6 py-2.5
+                text-sm font-semibold
+                text-white
+                bg-red-600
+                hover:bg-red-700
+                rounded-full
+                transition
+                shadow-lg">
+
+                    Get a Quote
+
+                    <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+
+                </a>
+
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-2xl text-gray-700">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </nav>
+    </header>
+
+    <!-- ============================================================
+    PHASE 2 – FULL‑SCREEN HERO
+    ============================================================ -->
+    <main>
+
+       <section class="relative min-h-screen flex items-center overflow-hidden">
+
+    <!-- Background -->
+    <div class="absolute inset-0 -z-10">
+
+        <img 
+        src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1800&h=1000&fit=crop&auto=format"
+        alt="Container ship and logistics operations"
+        class="w-full h-full object-cover" />
+
+        <!-- Corporate overlay -->
+        <div class="absolute inset-0 bg-black/55"></div>
+
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+
+    </div>
+
+
+    <!-- Main container -->
+    <div class="relative w-full max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+
+            <!-- LEFT CONTENT -->
+            <div class="lg:col-span-7 text-white space-y-8">
+
+
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+
+                    <span class="w-2 h-2 rounded-full bg-orange-400"></span>
+
+                    <span class="text-sm font-medium">
+                        Integrated Logistics Across Africa
+                    </span>
+
+                </div>
+
+
+
+                <h1
+                class="
+                text-5xl sm:text-6xl md:text-7xl lg:text-8xl
+                font-bold
+                leading-[1.05]
+                tracking-tight
+                ">
+
+                    Agile, Transparent &
+
+                    <span class="text-red-500">
+                        Cost-Effective
+                    </span>
+
+                    Logistics Across Africa
+
+                </h1>
+
+
+
+                <p 
+                class="
+                text-lg md:text-xl
+                max-w-xl
+                text-white/80
+                leading-relaxed
+                ">
+
+                    Your single point of contact for seamless cross-border freight,
+                    customs clearance, warehousing, and supply chain solutions
+                    across Southern and Central Africa.
+
+                </p>
+
+
+
+                <!-- Buttons -->
+                <div class="flex flex-wrap gap-4 pt-3">
+
+
+                    <a href="/contact"
+
+                    class="
+                    inline-flex items-center
+                    px-8 py-4
+                    bg-red-600
+                    hover:bg-red-700
+                    text-white
+                    font-semibold
+                    rounded-full
+                    transition
+                    shadow-lg
+                    ">
+
+                        Get a Quote
+
+                        <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+
+                    </a>
+
+
+
+                    <a href="/corridors"
+
+                    class="
+                    inline-flex items-center
+                    px-8 py-4
+                    border
+                    border-white/40
+                    hover:border-white
+                    text-white
+                    font-medium
+                    rounded-full
+                    transition
+                    backdrop-blur-sm
+                    ">
+
+                        Explore Our Corridors
+
+                        <i class="fa-solid fa-map-location-dot ml-2 text-sm"></i>
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- RIGHT SPACE -->
+            <div class="lg:col-span-5"></div>
+
+
+        </div>
+
+
+
+
+        <!-- FLOATING OPERATION CARD -->
+
+        <div
+
+        class="
+        absolute
+        bottom-8
+        right-6
+        lg:bottom-12
+        lg:right-12
+
+        w-full
+        max-w-md
+
+        bg-white/95
+        backdrop-blur-md
+
+        rounded-2xl
+
+        p-6
+
+        shadow-2xl
+
+        border border-white/20
+
+        ">
+
+
+            <div class="flex items-center justify-between mb-5">
+
+                <h3 class="font-bold text-gray-900 text-lg">
+                    Africore Operations
+                </h3>
+
+
+                <div class="
+                w-10 h-10
+                rounded-full
+                bg-red-100
+                flex items-center justify-center
+                ">
+
+                    <i class="fa-solid fa-truck-fast text-red-600"></i>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="space-y-4">
+
+
+                <div class="flex justify-between border-b pb-3">
+
+                    <span class="text-gray-500 text-sm">
+                        Countries Covered
+                    </span>
+
+                    <span class="font-bold text-red-600 text-xl">
+                        8+
+                    </span>
+
+                </div>
+
+
+
+                <div class="flex justify-between border-b pb-3">
+
+                    <span class="text-gray-500 text-sm">
+                        Logistics Corridors
+                    </span>
+
+                    <span class="font-bold text-red-600 text-xl">
+                        SADC
+                    </span>
+
+                </div>
+
+
+
+                <div class="flex justify-between">
+
+                    <span class="text-gray-500 text-sm">
+                        Core Services
+                    </span>
+
+                    <span class="font-bold text-red-600 text-xl">
+                        4
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="
+            mt-5
+            pt-4
+            border-t
+            text-xs
+            text-gray-500
+            text-center
+            ">
+
+
+                <i class="fa-solid fa-circle-check text-red-600 mr-1"></i>
+
+                Freight • Customs • Warehousing • Tracking
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+</section>
+
+             <!-- ============================================================
+        PHASE 3 – BUILDING SMARTER … (INDUSTRY TABS) - FIXED INTEGRATION
+        ============================================================ -->
+        <section class="py-20 md:py-28 bg-[#f5f5f7] pt-28 lg:pt-36" x-data="{
+                activeTab: 'mining',
+                tabs: {
+                    'mining': { 
+                        title: 'Mining & Minerals', 
+                        icon: 'fa-mountain', 
+                        desc: 'Efficient transport of heavy machinery and minerals across remote terrain. We ensure seamless cross-border movement for your mining operations.', 
+                        bullets: ['Bulk freight management for minerals.', 'Heavy machinery logistics.', 'Customs compliance for export/import.', 'Remote site accessibility planning.'] 
+                    },
+                    'agriculture': { 
+                        title: 'Agriculture & Perishables', 
+                        icon: 'fa-seedling', 
+                        desc: 'End-to-end cold chain solutions for perishable goods across Africa. We keep your produce fresh from farm to market.', 
+                        bullets: ['Temperature-controlled transport.', 'Fruit & vegetable distribution.', 'Supplier consolidation.', 'Real-time GPS tracking.'] 
+                    },
+                    'fmcg': { 
+                        title: 'FMCG & Retail', 
+                        icon: 'fa-box-open', 
+                        desc: 'High-speed distribution and warehousing for fast-moving consumer goods. Agile logistics to keep your retail shelves stocked.', 
+                        bullets: ['E-commerce support.', 'Warehouse inventory management.', 'Store delivery network optimization.', 'Reverse logistics.'] 
+                    },
+                    'construction': { 
+                        title: 'Construction', 
+                        icon: 'fa-helmet-safety', 
+                        desc: 'Reliable just-in-time delivery for construction materials and equipment to industrial sites across Southern and Central Africa.', 
+                        bullets: ['Just-in-time delivery.', 'Heavy load carriers.', 'Site materials handling.', 'Project timeline alignment.'] 
+                    },
+                    'heavy_equipment': { 
+                        title: 'Heavy Equipment', 
+                        icon: 'fa-tractor', 
+                        desc: 'Specialized hauling for oversized machinery. We provide expert route planning and escorts for your heaviest assets.', 
+                        bullets: ['Oversized load services.', 'Advanced route planning.', 'Permitting & escorts.', 'Secure offloading assistance.'] 
+                    },
+                    'humanitarian_aid': { 
+                        title: 'Humanitarian Aid', 
+                        icon: 'fa-hand-holding-heart', 
+                        desc: 'Rapid logistics support for emergency supplies and disaster response. Acting as your single point of contact for critical missions.', 
+                        bullets: ['Emergency relief distribution.', 'Cross-border aid clearing.', 'Last-mile humanitarian logistics.', 'On-the-ground cargo management.'] 
+                    }
+                }
+            }">
+            
+            <div class="max-w-7xl mx-auto px-4 md:px-6">
+                
+                <!-- Section Header -->
+                <div class="mb-8">
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Industries we serve</p>
+                    <h1 class="text-3xl md:text-4xl font-medium text-[#333333] mt-2 max-w-2xl">
+                        Building smarter, cleaner supply chains across diverse industries
+                    </h1>
+                </div>
+
+                <!-- Tab Buttons -->
+                <div class="flex flex-wrap items-center gap-4 mb-10">
+                    <template x-for="(tab, key) in tabs" :key="key">
+                        <button @click="activeTab = key" 
+                                :class="activeTab === key ? 
+                                    'border border-dashed border-red-600 bg-red-50 text-red-700 shadow-sm' : 
+                                    'border border-gray-200 bg-white/70 text-gray-500 hover:text-gray-900 hover:bg-white'"
+                                class="flex items-center gap-3 px-5 py-3 rounded-lg text-sm font-medium transition-all cursor-pointer">
+                            <i :class="'fa-solid ' + tab.icon" class="text-base"></i>
+                            <span x-text="tab.title"></span>
+                        </button>
+                    </template>
+                </div>
+
+                <!-- Main Content Card -->
+                <div class="bg-white rounded-3xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col lg:flex-row overflow-hidden gap-8 transition-all">
+                    
+                    <!-- Left Image (Placeholder) -->
+                    <div class="w-full lg:w-5/12 h-80 lg:h-auto overflow-hidden rounded-2xl relative">
+                        <!-- NOTE: Replace src with your actual image path (mining.jpg, agriculture.jpg, etc.) dynamically if desired -->
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Industry Logistics" 
+                             class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Right Content -->
+                    <div class="w-full lg:w-7/12 flex flex-col justify-center p-2 lg:p-6">
+                        <template x-for="(tab, key) in tabs" :key="key">
+                            <div x-show="activeTab === key" x-cloak class="transition-opacity duration-300">
+                                <h2 class="text-2xl font-semibold text-gray-900 mb-3" x-text="tab.title"></h2>
+                                <p class="text-gray-500 text-sm leading-relaxed mb-6 max-w-md" x-text="tab.desc"></p>
+                                
+                                <ul class="space-y-3">
+                                    <template x-for="bullet in tab.bullets" :key="bullet">
+                                        <li class="flex items-start gap-3 text-sm text-gray-700">
+                                            <i class="fa-solid fa-star text-red-500 mt-0.5 w-4 flex-shrink-0"></i>
+                                            <span x-text="bullet"></span>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Floating Action Button (Fixed globally) -->
+        <button class="fixed bottom-8 right-8 bg-[#1e1e2f] text-white h-12 w-12 rounded-full flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:bg-black transition z-50">
+            <i class="fa-solid fa-star text-sm"></i>
+        </button>
+    </main>
+
+    <!-- Alpine.js ready -->
+    <div x-data="{ loaded: true }" x-init="console.log('Alpine.js ready ✅')" class="hidden"></div>
+
+</body>
+
+</html>
