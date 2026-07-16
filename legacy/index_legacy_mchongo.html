@@ -518,11 +518,12 @@
             </div>
         </section>
 
-        <!-- ============================================================
+               <!-- ============================================================
               <!-- ============================================================
         PHASE 2.7 – SERVICES OVERVIEW (ALIGNMENT & HOVER FIXED)
         ============================================================ -->
-        <section class="bg-[#18181b] py-24" x-data="{
+        <section class="bg-[#18181b] py-24" 
+                 x-data="{
                     currentIndex: 0,
                     services: [
                         { title: 'Integrated Freight Solutions', icon: 'fa-truck-fast', bulletPoints: ['Coordinated road freight', 'Rail freight solutions', 'Route optimization', 'Carrier management', 'Real-time tracking'] },
@@ -545,21 +546,18 @@
                     }
                  }">
             <div class="max-w-7xl mx-auto px-6">
-
+                
                 <!-- Top Header Row -->
                 <div class="flex items-center justify-between mb-4">
-                    <span
-                        class="inline-block border border-gray-700 rounded-full px-5 py-1.5 text-[10px] font-bold text-gray-400 tracking-widest uppercase">
+                    <span class="inline-block border border-gray-700 rounded-full px-5 py-1.5 text-[10px] font-bold text-gray-400 tracking-widest uppercase">
                         Our Services
                     </span>
                     <!-- Navigation Arrows -->
                     <div class="flex items-center gap-3">
-                        <button @click="prev()"
-                            class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-500 hover:text-white hover:border-white transition cursor-pointer">
+                        <button @click="prev()" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-500 hover:text-white hover:border-white transition cursor-pointer">
                             <i class="fa-solid fa-arrow-left text-sm"></i>
                         </button>
-                        <button @click="next()"
-                            class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-500 hover:text-white hover:border-white transition cursor-pointer">
+                        <button @click="next()" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-500 hover:text-white hover:border-white transition cursor-pointer">
                             <i class="fa-solid fa-arrow-right text-sm"></i>
                         </button>
                     </div>
@@ -572,35 +570,29 @@
 
                 <!-- Carousel / Cards Grid -->
                 <div class="overflow-hidden">
-                    <div class="flex transition-transform duration-500 ease-in-out"
-                        :style="'transform: translateX(-' + (currentIndex * 100) + '%)'">
+                    <div class="flex transition-transform duration-500 ease-in-out" :style="'transform: translateX(-' + (currentIndex * 100) + '%)'">
                         <template x-for="service in services" :key="service.title">
                             <!-- Card Item -->
                             <div class="w-full md:w-1/3 flex-shrink-0 px-3">
-                                <div
-                                    class="bg-[#262626] rounded-2xl p-8 flex flex-col h-full relative border border-transparent transition-all duration-300 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(220,38,38,0.3)]">
-
+                                <div class="bg-[#262626] rounded-2xl p-8 flex flex-col h-full relative border border-transparent transition-all duration-300 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(220,38,38,0.3)]">
+                                    
                                     <!-- Top Red Icon -->
                                     <i :class="'fa-solid ' + service.icon" class="text-red-600 text-4xl mb-4 mt-2"></i>
-
+                                    
                                     <!-- Title -->
                                     <h3 class="text-white text-2xl font-medium mb-3" x-text="service.title"></h3>
-
+                                    
                                     <!-- Description -->
-                                    <p class="text-gray-400 text-base leading-relaxed mb-6 flex-grow"
-                                        x-text="service.bulletPoints.join(', ')"></p>
-
+                                    <p class="text-gray-400 text-base leading-relaxed mb-6 flex-grow" x-text="service.bulletPoints.join(', ')"></p>
+                                    
                                     <!-- View Detail Button -->
-                                    <a href="/services"
-                                        class="inline-block bg-black text-white text-sm font-medium px-6 py-2.5 rounded-full self-start hover:bg-gray-900 transition">
+                                    <a href="/services" class="inline-block bg-black text-white text-sm font-medium px-6 py-2.5 rounded-full self-start hover:bg-gray-900 transition">
                                         View detail
                                     </a>
 
                                     <!-- Bottom Decorative Line-art Graphic (Absolute to avoid breaking layout) -->
-                                    <div
-                                        class="absolute bottom-4 right-4 opacity-5 pointer-events-none select-none z-0">
-                                        <i :class="'fa-solid ' + service.icon"
-                                            class="text-white text-8xl scale-125"></i>
+                                    <div class="absolute bottom-4 right-4 opacity-5 pointer-events-none select-none z-0">
+                                        <i :class="'fa-solid ' + service.icon" class="text-white text-8xl scale-125"></i>
                                     </div>
 
                                 </div>
@@ -612,13 +604,13 @@
             </div>
         </section>
 
-        <!-- ============================================================
+                <!-- ============================================================
         PHASE 2.8 – WHY CHOOSE US SECTION
         ============================================================ -->
         <section class="bg-white py-24">
             <div class="max-w-6xl mx-auto px-4 md:px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
+                    
                     <!-- Left Column: Text Content -->
                     <div class="space-y-8">
                         <!-- Top Badge -->
@@ -630,15 +622,14 @@
                                 Why Africore eco-supply is<br>the smarter choice
                             </h2>
                         </div>
-
+                        
                         <!-- Feature 1 -->
                         <div class="flex gap-4">
                             <div class="w-2.5 h-2.5 bg-red-600 rounded-[2px] mt-1.5 shrink-0"></div>
                             <div>
                                 <h4 class="font-medium text-lg text-[#1e1e2a]">Innovative logistics technology</h4>
                                 <p class="text-gray-500 text-sm leading-relaxed mt-1">
-                                    We utilize advanced route optimization, real-time tracking, and intelligent fleet
-                                    management tools to enhance your logistics while ensuring complete transparency.
+                                    We utilize advanced route optimization, real-time tracking, and intelligent fleet management tools to enhance your logistics while ensuring complete transparency.
                                 </p>
                             </div>
                         </div>
@@ -649,8 +640,7 @@
                             <div>
                                 <h4 class="font-medium text-lg text-[#1e1e2a]">Customized logistics solutions</h4>
                                 <p class="text-gray-500 text-sm leading-relaxed mt-1">
-                                    We tailor our supply chain strategies to align perfectly with your industry needs,
-                                    operational goals, and sustainability commitments.
+                                    We tailor our supply chain strategies to align perfectly with your industry needs, operational goals, and sustainability commitments.
                                 </p>
                             </div>
                         </div>
@@ -661,8 +651,7 @@
                             <div>
                                 <h4 class="font-medium text-lg text-[#1e1e2a]">Commitment to future</h4>
                                 <p class="text-gray-500 text-sm leading-relaxed mt-1">
-                                    We help businesses future-proof their supply chains by integrating sustainable
-                                    practices and resilient network designs today.
+                                    We help businesses future-proof their supply chains by integrating sustainable practices and resilient network designs today.
                                 </p>
                             </div>
                         </div>
@@ -672,13 +661,12 @@
                     <div class="relative w-full mt-6 lg:mt-0 flex justify-center">
                         <div class="w-full relative max-w-lg lg:max-w-none">
                             <!-- Landscape Image -->
-                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop"
-                                alt="Aerial view of fields and roads"
-                                class="w-full h-auto aspect-[4/3] object-cover rounded-3xl shadow-sm">
-
+                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop" 
+                                 alt="Aerial view of fields and roads" 
+                                 class="w-full h-auto aspect-[4/3] object-cover rounded-3xl shadow-sm">
+                            
                             <!-- Overlapping Button -->
-                            <a href="/team"
-                                class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-full px-8 py-3.5 shadow-lg transition-colors inline-block text-sm whitespace-nowrap z-10">
+                            <a href="/team" class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-full px-8 py-3.5 shadow-lg transition-colors inline-block text-sm whitespace-nowrap z-10">
                                 Meet our team
                             </a>
                         </div>
@@ -793,7 +781,8 @@
         <!-- ============================================================
         PHASE 2.9 – TESTIMONIALS / CLIENTS SAY SECTION
         ============================================================ -->
-        <section class="relative py-24 overflow-hidden" x-data="{
+        <section class="relative py-24 overflow-hidden" 
+                 x-data="{
                     currentIndex: 0,
                     testimonials: [
                         { name: 'Emma Carter', role: 'Logistics Manager', image: 'https://i.pravatar.cc/150?u=emma', text: 'Africore helped us cut logistics emissions while ensuring timely deliveries. A true sustainability partner.' },
@@ -817,17 +806,18 @@
                         }
                     }
                  }">
-
+            
             <!-- Background Image -->
             <div class="absolute inset-0 -z-10">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1800&auto=format&fit=crop"
-                    alt="Aerial view of logistics facility" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1800&auto=format&fit=crop" 
+                     alt="Aerial view of logistics facility" 
+                     class="w-full h-full object-cover">
                 <!-- Heavy Dark Overlay -->
                 <div class="absolute inset-0 bg-black/70"></div>
             </div>
 
             <div class="relative max-w-7xl mx-auto px-4 md:px-6 text-center">
-
+                
                 <!-- Header Content -->
                 <div class="mb-14">
                     <h2 class="text-3xl md:text-5xl font-medium text-white leading-tight">
@@ -840,29 +830,27 @@
 
                 <!-- Top Right Navigation Arrows -->
                 <div class="absolute right-6 top-4 md:right-12 md:top-16 flex gap-3 z-10 hidden md:flex">
-                    <button @click="prev()"
-                        class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition cursor-pointer">
+                    <button @click="prev()" class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition cursor-pointer">
                         <i class="fa-solid fa-arrow-left text-sm"></i>
                     </button>
-                    <button @click="next()"
-                        class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition cursor-pointer">
+                    <button @click="next()" class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition cursor-pointer">
                         <i class="fa-solid fa-arrow-right text-sm"></i>
                     </button>
                 </div>
 
                 <!-- Carousel Cards Grid -->
                 <div class="overflow-hidden mt-12 md:mt-0">
-                    <div class="flex transition-transform duration-500 ease-in-out"
-                        :style="'transform: translateX(-' + (currentIndex * (100/3)) + '%)'">
+                    <div class="flex transition-transform duration-500 ease-in-out" :style="'transform: translateX(-' + (currentIndex * (100/3)) + '%)'">
                         <template x-for="client in testimonials" :key="client.name">
                             <!-- Card Item -->
                             <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
                                 <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 flex flex-col text-left h-full">
-
+                                    
                                     <!-- Avatar & Identity -->
                                     <div class="flex items-center gap-4 mb-4">
-                                        <img :src="client.image" :alt="client.name"
-                                            class="w-12 h-12 rounded-full object-cover border border-gray-200">
+                                        <img :src="client.image" 
+                                             :alt="client.name" 
+                                             class="w-12 h-12 rounded-full object-cover border border-gray-200">
                                         <div>
                                             <h4 class="font-semibold text-gray-900 text-base" x-text="client.name"></h4>
                                             <p class="text-gray-500 text-sm" x-text="client.role"></p>
@@ -879,15 +867,13 @@
                         </template>
                     </div>
                 </div>
-
+                
                 <!-- Mobile Navigation Arrows (Visible only on small screens below the cards) -->
                 <div class="flex justify-center gap-4 mt-8 md:hidden">
-                    <button @click="prev()"
-                        class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition cursor-pointer bg-black/20 backdrop-blur-sm">
+                    <button @click="prev()" class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition cursor-pointer bg-black/20 backdrop-blur-sm">
                         <i class="fa-solid fa-arrow-left text-sm"></i>
                     </button>
-                    <button @click="next()"
-                        class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition cursor-pointer bg-black/20 backdrop-blur-sm">
+                    <button @click="next()" class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition cursor-pointer bg-black/20 backdrop-blur-sm">
                         <i class="fa-solid fa-arrow-right text-sm"></i>
                     </button>
                 </div>
@@ -895,35 +881,36 @@
             </div>
         </section>
 
-        <!-- ============================================================
-        PHASE 2.11 – BLOG / CASE STUDIES CAROUSEL
+               <!-- ============================================================
+        PHASE 2.11 – BLOG / CASE STUDIES CAROUSEL (ARROWS & BADGES FIXED)
         ============================================================ -->
-        <section class="bg-white py-24" x-data="{
+        <section class="bg-white py-24" 
+                 x-data="{
                     currentIndex: 0,
                     blogPosts: [
                         { 
                             title: 'The future of sustainable logistics: 5 trends to watch in 2025', 
-                            image: '/img/mobile.png', 
+                            image: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=600&h=450&fit=crop', 
                             category: 'Sustainability', 
                             date: 'June 18, 2025' 
                         },
                         { 
                             title: 'How green logistics are changing the game', 
-                            image: '/img/mobile.png', 
+                            image: 'https://images.unsplash.com/photo-1535248964291-4098f7376316?w=600&h=450&fit=crop', 
                             category: 'Green Technology', 
                             date: 'June 18, 2025' 
                         },
                         { 
-                            title: 'Optimizing supply chains for a net-zero future', 
-                            image: '/img/mobile.png', 
-                            category: 'Innovation', 
-                            date: 'June 15, 2025' 
+                            title: 'Eco-friendly schools: Teaching sustainability by doing', 
+                            image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=450&fit=crop', 
+                            category: 'Education', 
+                            date: 'June 18, 2025' 
                         },
                         { 
                             title: 'Driving efficiency with smart warehousing', 
-                            image: '/img/mobile.png', 
+                            image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=450&fit=crop', 
                             category: 'Warehousing', 
-                            date: 'June 12, 2025' 
+                            date: 'June 15, 2025' 
                         }
                     ],
                     next() {
@@ -941,69 +928,63 @@
                         }
                     }
                  }">
-
+            
             <div class="max-w-7xl mx-auto px-4 md:px-6">
-
+                
                 <!-- Header Section -->
                 <div class="flex flex-col md:flex-row justify-between items-end md:items-center gap-6 mb-12">
                     <div>
-                        <span
-                            class="inline-block border border-gray-200 rounded-full px-4 py-1.5 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                        <span class="inline-block border border-gray-200 rounded-full px-4 py-1.5 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
                             Our Blog
                         </span>
                         <h2 class="text-3xl md:text-5xl font-medium text-gray-900 leading-tight mt-3 max-w-2xl">
-                            Sustainability delivered: Impactful <span class="text-gray-400">case studies</span> from our
-                            clients
+                            Sustainability delivered: Impactful <span class="text-gray-400">case studies</span> from our clients
                         </h2>
                     </div>
                 </div>
 
                 <!-- Carousel Slider with Overlapping Arrows -->
                 <div class="relative px-8 md:px-12 mt-4">
-
-                    <!-- Left Overlapping Arrow -->
-                    <button @click="prev()"
-                        class="absolute left-0 top-1/2 -translate-y-1/2 -ml-3 md:-ml-4 z-10 bg-white rounded-full border border-gray-200 shadow-md w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-600 hover:text-red-600 hover:border-red-600 transition cursor-pointer">
+                    
+                    <!-- Left Overlapping Arrow (Fixed negative margin to overlap images properly) -->
+                    <button @click="prev()" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-5 md:-ml-6 z-20 bg-white rounded-full border border-gray-200 shadow-sm hover:shadow-md w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-600 hover:text-red-600 hover:border-red-600 transition cursor-pointer">
                         <i class="fa-solid fa-arrow-left text-sm md:text-base"></i>
                     </button>
 
-                    <!-- Right Overlapping Arrow -->
-                    <button @click="next()"
-                        class="absolute right-0 top-1/2 -translate-y-1/2 -mr-3 md:-mr-4 z-10 bg-white rounded-full border border-gray-200 shadow-md w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-600 hover:text-red-600 hover:border-red-600 transition cursor-pointer">
+                    <!-- Right Overlapping Arrow (Fixed negative margin to overlap images properly) -->
+                    <button @click="next()" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-5 md:-mr-6 z-20 bg-white rounded-full border border-gray-200 shadow-sm hover:shadow-md w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-600 hover:text-red-600 hover:border-red-600 transition cursor-pointer">
                         <i class="fa-solid fa-arrow-right text-sm md:text-base"></i>
                     </button>
 
                     <!-- Card Track -->
                     <div class="overflow-hidden">
-                        <div class="flex transition-transform duration-500 ease-in-out"
-                            :style="'transform: translateX(-' + (currentIndex * 50) + '%)'">
+                        <div class="flex transition-transform duration-500 ease-in-out" :style="'transform: translateX(-' + (currentIndex * 50) + '%)'">
                             <template x-for="post in blogPosts" :key="post.title">
                                 <!-- Blog Card -->
                                 <div class="w-full md:w-1/2 flex-shrink-0 px-3">
                                     <div class="flex flex-col gap-3 group cursor-pointer">
-
+                                        
                                         <!-- Image & Overlays -->
                                         <div class="relative rounded-2xl overflow-hidden aspect-[4/3] w-full">
-                                            <!-- Category Tag (Red for Africore Brand) -->
-                                            <span
-                                                class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                                            
+                                            <!-- Category Tag (Fixed: Added capitalize to match reference) -->
+                                            <span class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full capitalize tracking-wide">
                                                 <span x-text="post.category"></span>
                                             </span>
-
-                                            <!-- Date Tag -->
-                                            <span
-                                                class="absolute top-4 right-4 bg-black/40 backdrop-blur-sm text-white text-[10px] px-3 py-1 rounded-full font-medium">
+                                            
+                                            <!-- Date Tag (Fixed: Glassmorphism style) -->
+                                            <span class="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] px-3 py-1 rounded-full font-medium">
                                                 <span x-text="post.date"></span>
                                             </span>
 
                                             <!-- Image -->
-                                            <img :src="post.image" :alt="post.title"
-                                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                            <img :src="post.image" 
+                                                 :alt="post.title" 
+                                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                         </div>
 
                                         <!-- Title -->
-                                        <h3 class="text-lg font-medium text-gray-900 leading-snug mt-1"
-                                            x-text="post.title"></h3>
+                                        <h3 class="text-lg font-medium text-gray-900 leading-snug mt-1" x-text="post.title"></h3>
 
                                     </div>
                                 </div>
@@ -1016,21 +997,22 @@
             </div>
         </section>
 
-        <!-- ============================================================
+                <!-- ============================================================
         PHASE 2.10 – FINAL CALL TO ACTION (CTA)
         ============================================================ -->
         <section class="relative py-24 md:py-32 overflow-hidden flex items-center justify-center">
-
+            
             <!-- Background Image: Dark Forest with Sunrays -->
             <div class="absolute inset-0 -z-10">
-                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop"
-                    alt="Aerial view of dense forest canopy" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop" 
+                     alt="Aerial view of dense forest canopy" 
+                     class="w-full h-full object-cover">
                 <!-- Heavy Dark Overlay for Text Readability -->
                 <div class="absolute inset-0 bg-black/65"></div>
             </div>
 
             <div class="relative max-w-4xl mx-auto px-4 md:px-6 text-center z-10">
-
+                
                 <!-- Headline -->
                 <h2 class="text-4xl md:text-6xl font-medium text-white leading-tight drop-shadow-md">
                     Join the mission for smarter,<br />cleaner transportation
@@ -1038,14 +1020,12 @@
 
                 <!-- Subtext -->
                 <p class="text-gray-200 max-w-2xl mx-auto mt-4 text-sm md:text-base leading-relaxed drop-shadow-sm">
-                    Let's work together to reduce emissions, optimize our operations, and make a positive impact on the
-                    planet.
+                    Let's work together to reduce emissions, optimize our operations, and make a positive impact on the planet.
                 </p>
 
                 <!-- CTA Button (Stylized to Africore Red) -->
                 <div class="mt-8">
-                    <a href="/contact"
-                        class="inline-flex items-center px-8 py-3.5 bg-red-600 hover:bg-red-700 text-white font-medium rounded-full shadow-lg transition-colors shadow-red-900/30">
+                    <a href="/contact" class="inline-flex items-center px-8 py-3.5 bg-red-600 hover:bg-red-700 text-white font-medium rounded-full shadow-lg transition-colors shadow-red-900/30">
                         Talk to our experts
                     </a>
                 </div>
@@ -1054,136 +1034,26 @@
 
             <!-- Decorative Bottom-Right Airplane -->
             <div class="absolute bottom-0 right-0 pointer-events-none select-none z-0 opacity-20">
-                <img src="https://cdn-icons-png.flaticon.com/512/7893/7893949.png" alt="Decorative airplane silhouette"
-                    class="w-80 h-auto md:w-[400px] transform translate-x-10 translate-y-10 rotate-[-20deg]">
+                <img src="https://cdn-icons-png.flaticon.com/512/7893/7893949.png" 
+                     alt="Decorative airplane silhouette" 
+                     class="w-80 h-auto md:w-[400px] transform translate-x-10 translate-y-10 rotate-[-20deg]">
             </div>
 
         </section>
-
-        <!-- ============================================================
-    PHASE 3 – FOOTER SECTION
-    ============================================================ -->
-    <footer class="relative w-full min-h-screen bg-[url('/img/desktop.png')] bg-cover bg-center bg-no-repeat flex flex-col items-center">
-        
-        <!-- Background Overlay (Optional: adds depth to text if image is too bright) -->
-        <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
-
-        <!-- Inner Container -->
-        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 pt-20 pb-10 flex flex-col gap-6">
-            
-        
-            <!-- Main Footer Cards Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                
-                                <!-- Left Card -->
-                <div class="bg-white rounded-[2.5rem] p-10 flex flex-col justify-between shadow-2xl min-h-[400px]">
-                    <div>
-                        <!-- Logo Icon -->
-                        <img src="/img/africore_logo.jpeg" class="w-32 h-auto" alt="Africore Logo" srcset="">
-                        
-                        <!-- Headline -->
-                        <h2 class="text-[32px] leading-tight font-normal text-gray-900 mt-2">
-                            We believe <span class="font-bold">real change</span> starts<br>
-                            deep within the supply chain.
-                        </h2>
-                        
-                        <!-- Form Section -->
-                        <div class="mt-8">
-                            <p class="text-sm text-gray-500 mb-3">Join our eco-supply community.</p>
-                            <form class="flex items-center bg-white border border-gray-200 rounded-full p-1.5 w-full max-w-sm shadow-sm">
-                                <input type="email" placeholder="Enter your email" class="flex-1 bg-transparent border-none outline-none px-4 py-1.5 text-sm text-gray-700 placeholder-gray-400">
-                                <button type="submit" class="bg-[#98e84e] text-black font-medium px-6 py-2 rounded-full hover:bg-[#82d33a] transition-colors text-sm">
-                                    Subscribe
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <!-- Bottom Text (Replaced here) -->
-                    <p class="text-xs text-gray-400 mt-10">© Africore 2026</p>.
-                </div>
-                <!-- Right Card -->
-                <div class="bg-white rounded-[2.5rem] p-10 shadow-2xl min-h-[400px]">
-                    <!-- Inner 2x2 Grid -->
-                    <div class="grid grid-cols-2 gap-y-10 gap-x-6 h-full">
-                        
-                        <!-- Top Left: Pages -->
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Pages</h3>
-                            <div class="grid grid-cols-2 gap-x-4 gap-y-1 mt-3 text-sm text-gray-600">
-                                <div class="flex flex-col gap-1.5">
-                                    <a href="#" class="hover:text-black transition-colors">Home</a>
-                                    <a href="#" class="hover:text-black transition-colors">About</a>
-                                    <a href="#" class="hover:text-black transition-colors">Service</a>
-                                    <a href="#" class="hover:text-black transition-colors">Static</a>
-                                </div>
-                                <div class="flex flex-col gap-1.5">
-                                    <a href="#" class="hover:text-black transition-colors">Case<br>Studies</a>
-                                    <a href="#" class="hover:text-black transition-colors">Blog</a>
-                                    <a href="#" class="hover:text-black transition-colors">Contact</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Top Right: Address -->
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Address</h3>
-                            <div class="mt-3 text-sm text-gray-600 leading-relaxed flex flex-col gap-4">
-                                <p>
-                                    123 Remote Work Avenue,<br>
-                                    San Francisco, CA 94105
-                                </p>
-                                <p>
-                                    144 Creative Street, Suite<br>
-                                    456, New York, NY 10001,<br>
-                                    USA
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Bottom Left: Contact -->
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Contact</h3>
-                            <div class="mt-3 text-sm text-gray-600 flex flex-col gap-1.5">
-                                <a href="mailto:hello@example.com" class="hover:text-black transition-colors">hello@example.com</a>
-                                <a href="tel:+1234567890" class="hover:text-black transition-colors">+123 456 7890</a>
-                            </div>
-                        </div>
-
-                        <!-- Bottom Right: Social Media -->
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Social Media</h3>
-                            <div class="mt-3 flex gap-4 text-gray-800">
-                                <a href="#" class="hover:text-[#98e84e] transition-colors"><i class="fa-brands fa-facebook-f text-lg"></i></a>
-                                <a href="#" class="hover:text-[#98e84e] transition-colors"><i class="fa-brands fa-twitter text-lg"></i></a>
-                                <a href="#" class="hover:text-[#98e84e] transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Floating Action Button (Bottom Right) -->
-        <div class="fixed bottom-8 right-8 z-50 bg-[#351a52] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl cursor-pointer hover:scale-105 transition-transform border border-white/10">
-            <i class="fa-solid fa-star text-xl"></i>
-        </div>
-
-    </footer>
-
-    <!-- ============================================================
-    END FOOTER SECTION
-    ============================================================ -->
-
 
         <!-- Floating Action Button (Fixed globally) -->
         <button
             class="fixed bottom-8 right-8 bg-[#1e1e2f] text-white h-12 w-12 rounded-full flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:bg-black transition z-50">
             <i class="fa-solid fa-whatsapp text-sm"></i>
         </button>
+
+
+
+        
     </main>
+
+    
+    
 
     <!-- Alpine.js ready -->
     <div x-data="{ loaded: true }" x-init="console.log('Alpine.js ready ✅')" class="hidden"></div>

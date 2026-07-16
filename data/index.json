@@ -126,9 +126,55 @@
       ]
     },
     {
+      "id": "services-overview",
+      "type": "service-feature-grid",
+      "order": 3,
+      "title": "OUR SERVICES",
+      "layout": {
+        "columns": 3,
+        "responsive": true
+      },
+      "items": [
+        {
+          "title": "INTEGRATED FREIGHT SOLUTIONS",
+          "icon": "freight",
+          "bulletPoints": [
+            "Coordinated road freight",
+            "Rail freight solutions",
+            "Route optimization",
+            "Carrier management",
+            "Real-time tracking"
+          ]
+        },
+        {
+          "title": "CUSTOMS & TRADE COMPLIANCES",
+          "icon": "compliance",
+          "bulletPoints": [
+            "Custom brokerage",
+            "Tariff classification",
+            "Documentation Processing",
+            "Import/Export compliance",
+            "Multi-country regulatory handling"
+          ]
+        },
+        {
+          "title": "SMART WAREHOUSING SOLUTIONS",
+          "icon": "warehousing",
+          "bulletPoints": [
+            "Short-term storage",
+            "Long-term storage",
+            "Inventory management",
+            "Cross-docking",
+            "Repacking",
+            "Labelling"
+          ]
+        }
+      ]
+    },
+    {
       "id": "about-preview",
       "type": "split-section",
-      "order": 3,
+      "order": 4,
       "layout": {
         "textPosition": "left",
         "imagePosition": "right"
@@ -149,7 +195,7 @@
     {
       "id": "corridor-map",
       "type": "map-section",
-      "order": 4,
+      "order": 5,
       "background": "light",
       "headline": "Connecting Seven African Nations",
       "description": "Our dedicated logistics corridor and strategically positioned warehouses ensure your cargo reaches every destination efficiently.",
@@ -178,7 +224,7 @@
     {
       "id": "industries",
       "type": "carousel",
-      "order": 5,
+      "order": 6,
       "headline": "Delivering For Every Sector",
       "items": [
         {
@@ -210,7 +256,7 @@
     {
       "id": "why-africore",
       "type": "comparison",
-      "order": 6,
+      "order": 7,
       "headline": "Why Choose Africore?",
       "layout": {
         "columns": 2
@@ -241,7 +287,7 @@
     {
       "id": "mission-vision",
       "type": "cards",
-      "order": 7,
+      "order": 8,
       "headline": "Our Purpose",
       "layout": {
         "columns": 2
@@ -262,7 +308,7 @@
     {
       "id": "tracking-banner",
       "type": "highlight-banner",
-      "order": 8,
+      "order": 9,
       "background": "primary",
       "headline": "Gain Complete Control of Your Cargo",
       "description": "Access Daily Tracking Reports and Proactive Real-Time Alerts through our secure client portal.",

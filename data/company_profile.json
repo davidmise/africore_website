@@ -9,6 +9,45 @@
     "warehousing_network": "Strategically located storage facilities near key border posts and economic zones, enabling buffer stock management and just-in-time delivery.",
     "customs_compliance": "Experienced clearing teams handle SARS (South Africa), ZRA (Zambia), DGM (DRC), TRA (Tanzania), and other national authorities. Full compliance with SACU, SADC, and EAC trade protocols."
   },
+  "services": {
+    "title": "OUR SERVICES",
+    "service_categories": [
+      {
+        "name": "INTEGRATED FREIGHT SOLUTIONS",
+        "icon_type": "red hexagon with truck/globe and gear",
+        "items": [
+          "Coordinated road freight",
+          "Rail freight solutions",
+          "Route optimization",
+          "Carrier management",
+          "Real-time tracking"
+        ]
+      },
+      {
+        "name": "CUSTOMS & TRADE COMPLIANCES",
+        "icon_type": "red hexagon with gear/settings icon",
+        "items": [
+          "Custom brokerage",
+          "Tariff classification",
+          "Documentation Processing",
+          "Imort/Export compliance",
+          "Multi-country regulatory handling"
+        ]
+      },
+      {
+        "name": "SMART WAREHOUSING SOLUTIONS",
+        "icon_type": "red hexagon with warehouse and gear icon",
+        "items": [
+          "Short-term storage",
+          "Long-term storage",
+          "Inventory management",
+          "Cross-docking",
+          "Repacking",
+          "Labelling"
+        ]
+      }
+    ]
+  },
   "geographical_footprints": {
     "headquarters": "Johannesburg - Headquarters",
     "description": "Africore Logistics operates along a dedicated logistics corridor connecting seven African nations.",
