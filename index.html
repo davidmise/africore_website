@@ -11,35 +11,398 @@
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js">
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700,800&display=swap" />
 
     <style>
+        :root {
+            --brand-black: #000000;
+            --brand-red: #ed1c24;
+            --brand-red-dark: #c7171f;
+            --brand-gold: #fac56e;
+            --brand-gray: #7c7b7b;
+            --brand-sand: #d8b478;
+            --brand-orange: #f89f1e;
+            --brand-green: #a0b83b;
+            --brand-surface: #ececef;
+            --brand-white: #ffffff;
+            --brand-ink: #121212;
+            --brand-muted: #666a72;
+            --section-gap: clamp(5rem, 8vw, 8rem);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: "Switzer", "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+            background: radial-gradient(circle at 50% 0%, #f7f7f8 0%, var(--brand-surface) 38%, #e8e8ea 100%);
+            color: var(--brand-ink);
+            letter-spacing: 0.01em;
+            text-rendering: geometricPrecision;
+            overflow-x: hidden;
         }
 
-        .nav-pill {
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.02);
+        h1,
+        h2,
+        h3,
+        h4 {
+            letter-spacing: -0.02em;
         }
 
-        .hero-overlay {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 80%);
+        main section {
+            position: relative;
+            isolation: isolate;
         }
 
-        .hero-card {
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        main section::before {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            top: 20px;
+            right: -76px;
+            background-image: url("img/branding_guide/icon.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: -1;
+            filter: grayscale(1) contrast(0.7);
         }
 
-        .tab-content img {
-            transition: opacity 0.25s ease;
+        main section:nth-of-type(odd)::before {
+            left: -76px;
+            right: auto;
+            transform: scaleX(-1) rotate(-8deg);
+        }
+
+        .section-hero::before,
+        .section-services::before,
+        .section-testimonials::before,
+        .section-cta::before {
+            opacity: 0.14;
+            filter: none;
+        }
+
+        .section-hero {
+            margin-bottom: var(--section-gap);
+        }
+
+        .section-about,
+        .section-why,
+        .section-blog {
+            margin-bottom: var(--section-gap);
+        }
+
+        .section-services,
+        .section-industries,
+        .section-testimonials,
+        .section-cta {
+            margin-bottom: var(--section-gap);
+        }
+
+        .bg-red-600 {
+            background-color: var(--brand-red) !important;
+        }
+
+        .hover\:bg-red-700:hover {
+            background-color: var(--brand-red-dark) !important;
+        }
+
+        .text-red-600,
+        .text-red-500,
+        .hover\:text-red-600:hover,
+        .hover\:text-red-700:hover {
+            color: var(--brand-red) !important;
+        }
+
+        .border-red-600,
+        .hover\:border-red-600:hover,
+        .hover\:border-red-500\/50:hover {
+            border-color: var(--brand-red) !important;
+        }
+
+        .bg-red-50 {
+            background-color: rgba(237, 28, 36, 0.08) !important;
+        }
+
+        .text-red-700 {
+            color: var(--brand-red-dark) !important;
+        }
+
+        .brand-nav {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(18, 18, 18, 0.1);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.11);
+        }
+
+        .brand-pill {
+            border: 1px solid rgba(124, 123, 123, 0.28);
+            background: rgba(255, 255, 255, 0.84);
+            color: #2a2b2f;
+            letter-spacing: 0.14em;
+        }
+
+        .brand-primary-btn {
+            background: var(--brand-red);
+            color: #fff;
+            box-shadow: 0 10px 28px rgba(237, 28, 36, 0.28);
+        }
+
+        .brand-primary-btn:hover {
+            background: var(--brand-red-dark);
+            box-shadow: 0 14px 34px rgba(237, 28, 36, 0.34);
+        }
+
+        .brand-icon-chip {
+            border: 1px solid rgba(216, 180, 120, 0.46);
+            background: linear-gradient(145deg, rgba(250, 197, 110, 0.26), rgba(250, 197, 110, 0.1));
+        }
+
+        .brand-outline-button {
+            border-color: rgba(18, 18, 18, 0.2) !important;
+            color: var(--brand-ink) !important;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .brand-outline-button:hover {
+            border-color: var(--brand-red) !important;
+            color: var(--brand-red) !important;
+            background: rgba(237, 28, 36, 0.06) !important;
+        }
+
+        .brand-footer-link:hover {
+            color: var(--brand-red) !important;
+        }
+
+        .section-hero .inline-flex.rounded-full.bg-white\/10 {
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(250, 197, 110, 0.38);
+        }
+
+        .section-hero h1 {
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .section-hero .absolute.bottom-8.right-6 {
+            border: 1px solid rgba(18, 18, 18, 0.08);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .section-about {
+            background: linear-gradient(180deg, #ffffff 0%, #f4f4f5 100%);
+        }
+
+        .section-about .aspect-\[3\/4\] {
+            border: 1px solid rgba(18, 18, 18, 0.08);
+            box-shadow: 0 16px 38px rgba(0, 0, 0, 0.09);
+        }
+
+        .section-about h2,
+        .section-why h2,
+        .section-industries h1,
+        .section-blog h2 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #18191c;
+        }
+
+        .section-services {
+            background: linear-gradient(145deg, #0b0b0d 0%, #18181d 45%, #111114 100%);
+        }
+
+        .section-services .rounded-2xl.p-8 {
+            border-color: rgba(250, 197, 110, 0.18) !important;
+            background: linear-gradient(180deg, #17181d 0%, #111116 100%);
+        }
+
+        .section-services .rounded-2xl.p-8:hover {
+            box-shadow: 0 0 0 1px rgba(250, 197, 110, 0.24), 0 20px 40px rgba(0, 0, 0, 0.36), 0 0 30px rgba(237, 28, 36, 0.25);
+            transform: translateY(-4px);
+        }
+
+        .section-services h2 {
+            color: #f3f3f4;
+        }
+
+        .section-why {
+            background: #ffffff;
+        }
+
+        .section-why .w-2\.5.h-2\.5 {
+            background: linear-gradient(135deg, var(--brand-red), var(--brand-gold));
+            border-radius: 3px;
+        }
+
+        .section-industries {
+            background: linear-gradient(180deg, #f5f5f6 0%, #ececef 100%);
+        }
+
+        .section-industries button {
+            border-radius: 999px;
+            font-weight: 500;
+        }
+
+        .section-industries .rounded-3xl {
+            border-color: rgba(18, 18, 18, 0.08);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-testimonials {
+            background: #09090a;
+        }
+
+        .section-testimonials .bg-white.rounded-2xl {
+            border: 1px solid rgba(237, 28, 36, 0.16);
+        }
+
+        .section-testimonials .bg-white.rounded-2xl:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-blog {
+            background: linear-gradient(180deg, #ffffff 0%, #f4f4f5 100%);
+        }
+
+        .section-blog .group .rounded-2xl {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-blog .absolute.top-4.left-4.bg-red-600 {
+            background: linear-gradient(90deg, var(--brand-red), #f0454b);
+        }
+
+        .section-cta {
+            background: #0b0b0d;
+        }
+
+        .section-cta::after {
+            content: "";
+            position: absolute;
+            width: 42vw;
+            height: 42vw;
+            min-width: 360px;
+            min-height: 360px;
+            right: -12vw;
+            bottom: -18vw;
+            border-radius: 999px;
+            background: radial-gradient(circle at 48.825% 50%, #fac56e 0%, #f4bb68 22%, #ed1c24 70%);
+            opacity: 0.35;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .section-cta .brand-orb {
+            position: absolute;
+            left: -80px;
+            top: 22%;
+            width: 230px;
+            height: 230px;
+            opacity: 0.18;
+            pointer-events: none;
+            filter: grayscale(1);
+        }
+
+        .section-cta .brand-orb.right {
+            left: auto;
+            right: -70px;
+            top: auto;
+            bottom: -40px;
+            transform: rotate(18deg) scale(1.1);
+        }
+
+        footer {
+            background-color: #070708;
+        }
+
+        footer .bg-white.rounded-\[2\.5rem\] {
+            border: 1px solid rgba(18, 18, 18, 0.08);
+        }
+
+        footer h3 {
+            letter-spacing: -0.015em;
+        }
+
+        footer form {
+            border-color: rgba(124, 123, 123, 0.3) !important;
+        }
+
+        footer input:focus {
+            outline: none;
+            box-shadow: inset 0 0 0 1px rgba(237, 28, 36, 0.32);
+            border-radius: 999px;
+        }
+
+        @keyframes brand-fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-about .max-w-6xl,
+        .section-services .max-w-7xl,
+        .section-why .max-w-6xl,
+        .section-industries .max-w-7xl,
+        .section-testimonials .max-w-7xl,
+        .section-blog .max-w-7xl,
+        .section-cta .max-w-4xl {
+            animation: brand-fade-up 680ms ease-out both;
+        }
+
+        @media (max-width: 1024px) {
+            .section-hero {
+                margin-bottom: 4rem;
+            }
+
+            .section-about,
+            .section-services,
+            .section-why,
+            .section-industries,
+            .section-testimonials,
+            .section-blog,
+            .section-cta {
+                margin-bottom: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            main section::before {
+                width: 132px;
+                height: 132px;
+                opacity: 0.1;
+                right: -44px;
+            }
+
+            main section:nth-of-type(odd)::before {
+                left: -44px;
+            }
+
+            .section-cta::after {
+                width: 72vw;
+                height: 72vw;
+            }
+
+            .section-cta .brand-orb {
+                width: 140px;
+                height: 140px;
+                opacity: 0.14;
+            }
         }
     </style>
 </head>
 
 <!-- <body class="bg-white antialiased">  -->
 
-<body class="bg-[#f5f5f7] text-[#1e1e2a]">
+<body class="antialiased">
 
     <!-- ============================================================
     PHASE 1 – FLOATING NAVIGATION HEADER
@@ -49,7 +412,7 @@
         flex items-center justify-between
         w-full max-w-7xl mx-4
         px-6 py-3
-        bg-white/85 backdrop-blur-lg
+        brand-nav backdrop-blur-lg
         rounded-full
         border border-white/30
         shadow-lg
@@ -58,7 +421,7 @@
 
             <!-- Logo -->
             <a href="/" class="flex items-center gap-3 flex-shrink-0">
-                <img src="/img/africore_dark_font.png" alt="Africore Logistics" class="h-10 w-auto" />
+                <img src="img/africore_dark_font.png" alt="Africore Logistics" class="h-10 w-auto" />
                 <!-- 
             <div class="leading-tight">
                 <h1 class="font-bold text-lg text-gray-900">
@@ -137,13 +500,11 @@
             <div class="hidden md:flex items-center gap-3">
 
                 <!-- Secondary CTA -->
-                <a href="/portal" class="
+                <a href="/portal" class="brand-outline-button
                 px-5 py-2.5
                 text-sm font-semibold
-                border border-red-600
-                text-red-600
+                border
                 rounded-full
-                hover:bg-red-50
                 transition">
 
                     Client Portal
@@ -170,7 +531,7 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <button class="lg:hidden text-2xl text-gray-700">
+            <button class="lg:hidden text-2xl text-gray-700" aria-label="Open menu" title="Open menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
 
@@ -182,7 +543,7 @@
     ============================================================ -->
     <main>
 
-        <section class="relative min-h-screen flex items-center overflow-hidden">
+        <section class="section-hero relative min-h-screen flex items-center overflow-hidden">
 
             <!-- Background -->
             <div class="absolute inset-0 -z-10">
@@ -211,7 +572,8 @@
                         <div
                             class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
 
-                            <span class="w-2 h-2 rounded-full bg-orange-400"></span>
+                            <img src="img/branding_guide/icon.png" alt="Brand icon"
+                                class="h-4 w-4 object-contain opacity-90" />
 
                             <span class="text-sm font-medium">
                                 Integrated Logistics Across Africa
@@ -441,17 +803,17 @@
         <!-- ============================================================
         PHASE 2.5 – ABOUT US / DRIVING CHANGE SECTION
         ============================================================ -->
-        <section class="bg-white py-24">
+        <section class="section-about bg-white py-24">
             <div class="max-w-6xl mx-auto px-4 md:px-6 text-center">
 
                 <!-- Top Icon & Badge -->
                 <div class="flex flex-col items-center justify-center gap-3 mb-6">
                     <div
-                        class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 bg-gray-50">
-                        <i class="fa-solid fa-sun text-lg"></i>
+                        class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 bg-gray-50 overflow-hidden">
+                        <img src="img/branding_guide/icon.png" alt="Brand element" class="h-6 w-6 object-contain" />
                     </div>
                     <span
-                        class="inline-block px-4 py-1.5 bg-gray-100 rounded-full text-[10px] font-bold text-gray-600 tracking-widest uppercase">
+                        class="brand-pill inline-block px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">
                         About Us
                     </span>
                 </div>
@@ -467,17 +829,17 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-5xl mx-auto items-start">
                     <!-- Image 1: Left (Pushed lower) -->
                     <div class="aspect-[3/4] overflow-hidden rounded-2xl mt-8 md:mt-12">
-                        <img src="/img/mobile.png" alt="Logistics route"
+                        <img src="img/mobile.png" alt="Logistics route"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                     </div>
                     <!-- Image 2: Center (Higher than the others) -->
                     <div class="aspect-[3/4] overflow-hidden rounded-2xl">
-                        <img src="/img/mobile.png" alt="Sustainable green logistics"
+                        <img src="img/mobile.png" alt="Sustainable green logistics"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                     </div>
                     <!-- Image 3: Right (Pushed lower) -->
                     <div class="aspect-[3/4] overflow-hidden rounded-2xl mt-8 md:mt-12">
-                        <img src="/img/mobile.png" alt="Supply chain logistics"
+                        <img src="img/mobile.png" alt="Supply chain logistics"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
@@ -485,7 +847,7 @@
                 <!-- Button (Moved up slightly) -->
                 <div class="mt-6">
                     <a href="/about"
-                        class="inline-flex items-center px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-full shadow-lg transition-colors">
+                        class="brand-primary-btn inline-flex items-center px-8 py-3 text-white font-medium rounded-full transition-colors">
                         More about us
                     </a>
                 </div>
@@ -519,18 +881,31 @@
         </section>
 
         <!-- ============================================================
-              <!-- ============================================================
         PHASE 2.7 – SERVICES OVERVIEW (ALIGNMENT & HOVER FIXED)
         ============================================================ -->
-        <section class="bg-[#18181b] py-24" x-data="{
+        <section class="section-services bg-[#18181b] py-24" x-data="{
                     currentIndex: 0,
+                    visibleCards: 1,
                     services: [
                         { title: 'Integrated Freight Solutions', icon: 'fa-truck-fast', bulletPoints: ['Coordinated road freight', 'Rail freight solutions', 'Route optimization', 'Carrier management', 'Real-time tracking'] },
                         { title: 'Customs & Trade Compliances', icon: 'fa-file-shield', bulletPoints: ['Custom brokerage', 'Tariff classification', 'Documentation Processing', 'Import/Export compliance', 'Multi-country regulatory handling'] },
                         { title: 'Smart Warehousing Solutions   ', icon: 'fa-warehouse', bulletPoints: ['Short-term storage', 'Long-term storage', 'Inventory management', 'Cross-docking', 'Repacking', 'Labelling'] }
                     ],
-                     next() {
-                        if (this.currentIndex < this.services.length - 1) {
+                    init() {
+                        const updateVisibleCards = () => {
+                            this.visibleCards = window.innerWidth >= 1024 ? 3 : 1;
+                            if (this.currentIndex > this.maxIndex()) {
+                                this.currentIndex = 0;
+                            }
+                        };
+                        updateVisibleCards();
+                        window.addEventListener('resize', updateVisibleCards);
+                    },
+                    maxIndex() {
+                        return Math.max(0, this.services.length - this.visibleCards);
+                    },
+                    next() {
+                        if (this.currentIndex < this.maxIndex()) {
                             this.currentIndex++;
                         } else {
                             this.currentIndex = 0;
@@ -540,25 +915,25 @@
                         if (this.currentIndex > 0) {
                             this.currentIndex--;
                         } else {
-                            this.currentIndex = this.services.length - 1;
+                            this.currentIndex = this.maxIndex();
                         }
                     }
-                 }">
+                 }" x-init="init()">
             <div class="max-w-7xl mx-auto px-6">
 
                 <!-- Top Header Row -->
                 <div class="flex items-center justify-between mb-4">
                     <span
-                        class="inline-block border border-gray-700 rounded-full px-5 py-1.5 text-[10px] font-bold text-gray-400 tracking-widest uppercase">
+                        class="brand-pill inline-block rounded-full px-5 py-1.5 text-[10px] font-bold uppercase bg-white/5 text-gray-300 border-gray-700/60">
                         Our Services
                     </span>
                     <!-- Navigation Arrows -->
                     <div class="flex items-center gap-3">
-                        <button @click="prev()"
+                        <button @click="prev()" aria-label="Previous service" title="Previous service"
                             class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-500 hover:text-white hover:border-white transition cursor-pointer">
                             <i class="fa-solid fa-arrow-left text-sm"></i>
                         </button>
-                        <button @click="next()"
+                        <button @click="next()" aria-label="Next service" title="Next service"
                             class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-500 hover:text-white hover:border-white transition cursor-pointer">
                             <i class="fa-solid fa-arrow-right text-sm"></i>
                         </button>
@@ -573,12 +948,12 @@
                 <!-- Carousel / Cards Grid -->
                 <div class="overflow-hidden">
                     <div class="flex transition-transform duration-500 ease-in-out"
-                        :style="'transform: translateX(-' + (currentIndex * 100) + '%)'">
+                        :style="'transform: translateX(-' + (currentIndex * (100 / visibleCards)) + '%)'">
                         <template x-for="service in services" :key="service.title">
                             <!-- Card Item -->
-                            <div class="w-full md:w-1/3 flex-shrink-0 px-3">
+                            <div class="w-full lg:w-1/3 flex-shrink-0 px-3">
                                 <div
-                                    class="bg-[#262626] rounded-2xl p-8 flex flex-col h-full relative border border-transparent transition-all duration-300 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(220,38,38,0.3)]">
+                                    class="bg-[#17181c] rounded-2xl p-8 flex flex-col h-full relative border border-transparent transition-all duration-300 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(241,23,46,0.32)]">
 
                                     <!-- Top Red Icon -->
                                     <i :class="'fa-solid ' + service.icon" class="text-red-600 text-4xl mb-4 mt-2"></i>
@@ -598,9 +973,8 @@
 
                                     <!-- Bottom Decorative Line-art Graphic (Absolute to avoid breaking layout) -->
                                     <div
-                                        class="absolute bottom-4 right-4 opacity-5 pointer-events-none select-none z-0">
-                                        <i :class="'fa-solid ' + service.icon"
-                                            class="text-white text-8xl scale-125"></i>
+                                        class="absolute bottom-4 right-4 opacity-15 pointer-events-none select-none z-0">
+                                        <img src="img/branding_guide/icon.png" alt="Brand icon" class="h-20 w-20 object-contain" />
                                     </div>
 
                                 </div>
@@ -615,7 +989,7 @@
         <!-- ============================================================
         PHASE 2.8 – WHY CHOOSE US SECTION
         ============================================================ -->
-        <section class="bg-white py-24">
+        <section class="section-why bg-white py-24">
             <div class="max-w-6xl mx-auto px-4 md:px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
@@ -690,7 +1064,7 @@
         <!-- ============================================================
         PHASE 3 – BUILDING SMARTER … (INDUSTRY TABS) - FIXED INTEGRATION
         ============================================================ -->
-        <section class="py-20 md:py-28 bg-[#f5f5f7] pt-28 lg:pt-36" x-data="{
+        <section class="section-industries py-20 md:py-28 bg-[#f5f5f7] pt-28 lg:pt-36" x-data="{
                 activeTab: 'mining',
                 tabs: {
                     'mining': { 
@@ -793,8 +1167,9 @@
         <!-- ============================================================
         PHASE 2.9 – TESTIMONIALS / CLIENTS SAY SECTION
         ============================================================ -->
-        <section class="relative py-24 overflow-hidden" x-data="{
+        <section class="section-testimonials relative py-24 overflow-hidden" x-data="{
                     currentIndex: 0,
+                    visibleCards: 1,
                     testimonials: [
                         { name: 'Emma Carter', role: 'Logistics Manager', image: 'https://i.pravatar.cc/150?u=emma', text: 'Africore helped us cut logistics emissions while ensuring timely deliveries. A true sustainability partner.' },
                         { name: 'Ethan Wilson', role: 'Supply Head', image: 'https://i.pravatar.cc/150?u=ethan', text: 'Highly recommend it for businesses serious about optimizing their green supply chain networks.' },
@@ -802,8 +1177,28 @@
                         { name: 'Olivia Brown', role: 'Enviro Lead', image: 'https://i.pravatar.cc/150?u=olivia', text: 'It\'s great to see a logistics partner that shares our values for a cleaner, more sustainable planet.' },
                         { name: 'David Lee', role: 'Supply Chain Head', image: 'https://i.pravatar.cc/150?u=david', text: 'Efficiency and sustainability in one seamless service. Africore truly understands modern supply chains.' }
                     ],
+                    init() {
+                        const updateVisibleCards = () => {
+                            if (window.innerWidth >= 1024) {
+                                this.visibleCards = 3;
+                            } else if (window.innerWidth >= 768) {
+                                this.visibleCards = 2;
+                            } else {
+                                this.visibleCards = 1;
+                            }
+
+                            if (this.currentIndex > this.maxIndex()) {
+                                this.currentIndex = 0;
+                            }
+                        };
+                        updateVisibleCards();
+                        window.addEventListener('resize', updateVisibleCards);
+                    },
+                    maxIndex() {
+                        return Math.max(0, this.testimonials.length - this.visibleCards);
+                    },
                     next() {
-                        if (this.currentIndex < this.testimonials.length - 3) {
+                        if (this.currentIndex < this.maxIndex()) {
                             this.currentIndex++;
                         } else {
                             this.currentIndex = 0;
@@ -813,10 +1208,10 @@
                         if (this.currentIndex > 0) {
                             this.currentIndex--;
                         } else {
-                            this.currentIndex = this.testimonials.length - 3;
+                            this.currentIndex = this.maxIndex();
                         }
                     }
-                 }">
+                 }" x-init="init()">
 
             <!-- Background Image -->
             <div class="absolute inset-0 -z-10">
@@ -840,11 +1235,11 @@
 
                 <!-- Top Right Navigation Arrows -->
                 <div class="absolute right-6 top-4 md:right-12 md:top-16 flex gap-3 z-10 hidden md:flex">
-                    <button @click="prev()"
+                    <button @click="prev()" aria-label="Previous testimonial" title="Previous testimonial"
                         class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition cursor-pointer">
                         <i class="fa-solid fa-arrow-left text-sm"></i>
                     </button>
-                    <button @click="next()"
+                    <button @click="next()" aria-label="Next testimonial" title="Next testimonial"
                         class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition cursor-pointer">
                         <i class="fa-solid fa-arrow-right text-sm"></i>
                     </button>
@@ -853,7 +1248,7 @@
                 <!-- Carousel Cards Grid -->
                 <div class="overflow-hidden mt-12 md:mt-0">
                     <div class="flex transition-transform duration-500 ease-in-out"
-                        :style="'transform: translateX(-' + (currentIndex * (100/3)) + '%)'">
+                        :style="'transform: translateX(-' + (currentIndex * (100 / visibleCards)) + '%)'">
                         <template x-for="client in testimonials" :key="client.name">
                             <!-- Card Item -->
                             <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
@@ -882,11 +1277,11 @@
 
                 <!-- Mobile Navigation Arrows (Visible only on small screens below the cards) -->
                 <div class="flex justify-center gap-4 mt-8 md:hidden">
-                    <button @click="prev()"
+                    <button @click="prev()" aria-label="Previous testimonial" title="Previous testimonial"
                         class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition cursor-pointer bg-black/20 backdrop-blur-sm">
                         <i class="fa-solid fa-arrow-left text-sm"></i>
                     </button>
-                    <button @click="next()"
+                    <button @click="next()" aria-label="Next testimonial" title="Next testimonial"
                         class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition cursor-pointer bg-black/20 backdrop-blur-sm">
                         <i class="fa-solid fa-arrow-right text-sm"></i>
                     </button>
@@ -898,36 +1293,50 @@
         <!-- ============================================================
         PHASE 2.11 – BLOG / CASE STUDIES CAROUSEL
         ============================================================ -->
-        <section class="bg-white py-24" x-data="{
+        <section class="section-blog bg-white py-24" x-data="{
                     currentIndex: 0,
+                visibleCards: 1,
                     blogPosts: [
                         { 
                             title: 'The future of sustainable logistics: 5 trends to watch in 2025', 
-                            image: '/img/mobile.png', 
+                            image: 'img/mobile.png', 
                             category: 'Sustainability', 
                             date: 'June 18, 2025' 
                         },
                         { 
                             title: 'How green logistics are changing the game', 
-                            image: '/img/mobile.png', 
+                            image: 'img/mobile.png', 
                             category: 'Green Technology', 
                             date: 'June 18, 2025' 
                         },
                         { 
                             title: 'Optimizing supply chains for a net-zero future', 
-                            image: '/img/mobile.png', 
+                            image: 'img/mobile.png', 
                             category: 'Innovation', 
                             date: 'June 15, 2025' 
                         },
                         { 
                             title: 'Driving efficiency with smart warehousing', 
-                            image: '/img/mobile.png', 
+                            image: 'img/mobile.png', 
                             category: 'Warehousing', 
                             date: 'June 12, 2025' 
                         }
                     ],
+                    init() {
+                        const updateVisibleCards = () => {
+                            this.visibleCards = window.innerWidth >= 768 ? 2 : 1;
+                            if (this.currentIndex > this.maxIndex()) {
+                                this.currentIndex = 0;
+                            }
+                        };
+                        updateVisibleCards();
+                        window.addEventListener('resize', updateVisibleCards);
+                    },
+                    maxIndex() {
+                        return Math.max(0, this.blogPosts.length - this.visibleCards);
+                    },
                     next() {
-                        if (this.currentIndex < this.blogPosts.length - 2) {
+                        if (this.currentIndex < this.maxIndex()) {
                             this.currentIndex++;
                         } else {
                             this.currentIndex = 0;
@@ -937,10 +1346,10 @@
                         if (this.currentIndex > 0) {
                             this.currentIndex--;
                         } else {
-                            this.currentIndex = this.blogPosts.length - 2;
+                            this.currentIndex = this.maxIndex();
                         }
                     }
-                 }">
+                 }" x-init="init()">
 
             <div class="max-w-7xl mx-auto px-4 md:px-6">
 
@@ -948,7 +1357,7 @@
                 <div class="flex flex-col md:flex-row justify-between items-end md:items-center gap-6 mb-12">
                     <div>
                         <span
-                            class="inline-block border border-gray-200 rounded-full px-4 py-1.5 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                            class="brand-pill inline-block rounded-full px-4 py-1.5 text-[10px] font-bold uppercase">
                             Our Blog
                         </span>
                         <h2 class="text-3xl md:text-5xl font-medium text-gray-900 leading-tight mt-3 max-w-2xl">
@@ -962,13 +1371,13 @@
                 <div class="relative px-8 md:px-12 mt-4">
 
                     <!-- Left Overlapping Arrow -->
-                    <button @click="prev()"
+                    <button @click="prev()" aria-label="Previous article" title="Previous article"
                         class="absolute left-0 top-1/2 -translate-y-1/2 -ml-3 md:-ml-4 z-10 bg-white rounded-full border border-gray-200 shadow-md w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-600 hover:text-red-600 hover:border-red-600 transition cursor-pointer">
                         <i class="fa-solid fa-arrow-left text-sm md:text-base"></i>
                     </button>
 
                     <!-- Right Overlapping Arrow -->
-                    <button @click="next()"
+                    <button @click="next()" aria-label="Next article" title="Next article"
                         class="absolute right-0 top-1/2 -translate-y-1/2 -mr-3 md:-mr-4 z-10 bg-white rounded-full border border-gray-200 shadow-md w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-600 hover:text-red-600 hover:border-red-600 transition cursor-pointer">
                         <i class="fa-solid fa-arrow-right text-sm md:text-base"></i>
                     </button>
@@ -976,7 +1385,7 @@
                     <!-- Card Track -->
                     <div class="overflow-hidden">
                         <div class="flex transition-transform duration-500 ease-in-out"
-                            :style="'transform: translateX(-' + (currentIndex * 50) + '%)'">
+                            :style="'transform: translateX(-' + (currentIndex * (100 / visibleCards)) + '%)'">
                             <template x-for="post in blogPosts" :key="post.title">
                                 <!-- Blog Card -->
                                 <div class="w-full md:w-1/2 flex-shrink-0 px-3">
@@ -1019,7 +1428,7 @@
         <!-- ============================================================
         PHASE 2.10 – FINAL CALL TO ACTION (CTA)
         ============================================================ -->
-        <section class="relative py-24 md:py-32 overflow-hidden flex items-center justify-center">
+        <section class="section-cta relative py-24 md:py-32 overflow-hidden flex items-center justify-center">
 
             <!-- Background Image: Dark Forest with Sunrays -->
             <div class="absolute inset-0 -z-10">
@@ -1030,6 +1439,9 @@
             </div>
 
             <div class="relative max-w-4xl mx-auto px-4 md:px-6 text-center z-10">
+
+                <img src="img/branding_guide/icon.png" alt="Brand icon"
+                    class="mx-auto h-14 w-14 object-contain opacity-95 mb-6" />
 
                 <!-- Headline -->
                 <h2 class="text-4xl md:text-6xl font-medium text-white leading-tight drop-shadow-md">
@@ -1052,10 +1464,11 @@
 
             </div>
 
-            <!-- Decorative Bottom-Right Airplane -->
-            <div class="absolute bottom-0 right-0 pointer-events-none select-none z-0 opacity-20">
-                <img src="https://cdn-icons-png.flaticon.com/512/7893/7893949.png" alt="Decorative airplane silhouette"
-                    class="w-80 h-auto md:w-[400px] transform translate-x-10 translate-y-10 rotate-[-20deg]">
+            <div class="brand-orb">
+                <img src="img/branding_guide/icon.png" alt="Brand graphic element" class="w-full h-full object-contain" />
+            </div>
+            <div class="brand-orb right">
+                <img src="img/branding_guide/icon.png" alt="Brand graphic element" class="w-full h-full object-contain" />
             </div>
 
         </section>
@@ -1063,7 +1476,7 @@
         <!-- ============================================================
     PHASE 3 – FOOTER SECTION
     ============================================================ -->
-    <footer class="relative w-full min-h-screen bg-[url('/img/desktop.png')] bg-cover bg-center bg-no-repeat flex flex-col items-center">
+    <footer class="relative w-full min-h-screen bg-[url('img/desktop.png')] bg-cover bg-center bg-no-repeat flex flex-col items-center">
         
         <!-- Background Overlay (Optional: adds depth to text if image is too bright) -->
         <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
@@ -1079,7 +1492,7 @@
                 <div class="bg-white rounded-[2.5rem] p-10 flex flex-col justify-between shadow-2xl min-h-[400px]">
                     <div>
                         <!-- Logo Icon -->
-                        <img src="/img/africore_logo.jpeg" class="w-32 h-auto" alt="Africore Logo" srcset="">
+                        <img src="img/africore_logo.jpeg" class="w-32 h-auto" alt="Africore Logo" srcset="">
                         
                         <!-- Headline -->
                         <h2 class="text-[32px] leading-tight font-normal text-gray-900 mt-2">
@@ -1092,7 +1505,7 @@
                             <p class="text-sm text-gray-500 mb-3">Join our eco-supply community.</p>
                             <form class="flex items-center bg-white border border-gray-200 rounded-full p-1.5 w-full max-w-sm shadow-sm">
                                 <input type="email" placeholder="Enter your email" class="flex-1 bg-transparent border-none outline-none px-4 py-1.5 text-sm text-gray-700 placeholder-gray-400">
-                                <button type="submit" class="bg-[#98e84e] text-black font-medium px-6 py-2 rounded-full hover:bg-[#82d33a] transition-colors text-sm">
+                                <button type="submit" class="bg-red-600 text-white font-medium px-6 py-2 rounded-full hover:bg-red-700 transition-colors text-sm">
                                     Subscribe
                                 </button>
                             </form>
@@ -1100,7 +1513,7 @@
                     </div>
 
                     <!-- Bottom Text (Replaced here) -->
-                    <p class="text-xs text-gray-400 mt-10">© Africore 2026</p>.
+                    <p class="text-xs text-gray-400 mt-10">© Africore 2026</p>
                 </div>
                 <!-- Right Card -->
                 <div class="bg-white rounded-[2.5rem] p-10 shadow-2xl min-h-[400px]">
@@ -1112,15 +1525,15 @@
                             <h3 class="text-2xl font-bold text-gray-900">Pages</h3>
                             <div class="grid grid-cols-2 gap-x-4 gap-y-1 mt-3 text-sm text-gray-600">
                                 <div class="flex flex-col gap-1.5">
-                                    <a href="#" class="hover:text-black transition-colors">Home</a>
-                                    <a href="#" class="hover:text-black transition-colors">About</a>
-                                    <a href="#" class="hover:text-black transition-colors">Service</a>
-                                    <a href="#" class="hover:text-black transition-colors">Static</a>
+                                    <a href="#" class="brand-footer-link transition-colors">Home</a>
+                                    <a href="#" class="brand-footer-link transition-colors">About</a>
+                                    <a href="#" class="brand-footer-link transition-colors">Service</a>
+                                    <a href="#" class="brand-footer-link transition-colors">Static</a>
                                 </div>
                                 <div class="flex flex-col gap-1.5">
-                                    <a href="#" class="hover:text-black transition-colors">Case<br>Studies</a>
-                                    <a href="#" class="hover:text-black transition-colors">Blog</a>
-                                    <a href="#" class="hover:text-black transition-colors">Contact</a>
+                                    <a href="#" class="brand-footer-link transition-colors">Case<br>Studies</a>
+                                    <a href="#" class="brand-footer-link transition-colors">Blog</a>
+                                    <a href="#" class="brand-footer-link transition-colors">Contact</a>
                                 </div>
                             </div>
                         </div>
@@ -1145,8 +1558,8 @@
                         <div>
                             <h3 class="text-2xl font-bold text-gray-900">Contact</h3>
                             <div class="mt-3 text-sm text-gray-600 flex flex-col gap-1.5">
-                                <a href="mailto:hello@example.com" class="hover:text-black transition-colors">hello@example.com</a>
-                                <a href="tel:+1234567890" class="hover:text-black transition-colors">+123 456 7890</a>
+                                <a href="mailto:hello@example.com" class="brand-footer-link transition-colors">hello@example.com</a>
+                                <a href="tel:+1234567890" class="brand-footer-link transition-colors">+123 456 7890</a>
                             </div>
                         </div>
 
@@ -1154,9 +1567,9 @@
                         <div>
                             <h3 class="text-2xl font-bold text-gray-900">Social Media</h3>
                             <div class="mt-3 flex gap-4 text-gray-800">
-                                <a href="#" class="hover:text-[#98e84e] transition-colors"><i class="fa-brands fa-facebook-f text-lg"></i></a>
-                                <a href="#" class="hover:text-[#98e84e] transition-colors"><i class="fa-brands fa-twitter text-lg"></i></a>
-                                <a href="#" class="hover:text-[#98e84e] transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                                <a href="#" class="brand-footer-link transition-colors" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f text-lg"></i></a>
+                                <a href="#" class="brand-footer-link transition-colors" aria-label="Twitter" title="Twitter"><i class="fa-brands fa-twitter text-lg"></i></a>
+                                <a href="#" class="brand-footer-link transition-colors" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram text-lg"></i></a>
                             </div>
                         </div>
                         
@@ -1164,11 +1577,6 @@
                 </div>
             </div>
 
-        </div>
-
-        <!-- Floating Action Button (Bottom Right) -->
-        <div class="fixed bottom-8 right-8 z-50 bg-[#351a52] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl cursor-pointer hover:scale-105 transition-transform border border-white/10">
-            <i class="fa-solid fa-star text-xl"></i>
         </div>
 
     </footer>
@@ -1180,8 +1588,8 @@
 
         <!-- Floating Action Button (Fixed globally) -->
         <button
-            class="fixed bottom-8 right-8 bg-[#1e1e2f] text-white h-12 w-12 rounded-full flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:bg-black transition z-50">
-            <i class="fa-solid fa-whatsapp text-sm"></i>
+            class="fixed bottom-8 right-8 bg-red-600 text-white h-12 w-12 rounded-full flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:bg-red-700 transition z-50">
+            <img src="img/branding_guide/icon.png" alt="Brand icon" class="h-6 w-6 object-contain" />
         </button>
     </main>
 
