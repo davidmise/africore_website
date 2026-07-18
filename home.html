@@ -273,55 +273,74 @@
     <!-- ============================================================
     FLOATING NAVIGATION HEADER
     ============================================================ -->
-    <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 pointer-events-none">
-        <nav class="flex items-center justify-between w-full max-w-7xl mx-4 px-6 py-3 brand-nav backdrop-blur-lg rounded-full border border-white/30 shadow-lg pointer-events-auto">
+ <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 pointer-events-none">
+    <nav class="
+        flex items-center justify-between
+        w-full max-w-7xl mx-4 px-6 py-3
+        bg-white/10 backdrop-blur-md
+        rounded-full
+        border border-white/20
+        shadow-2xl
+        pointer-events-auto
+        transition-all duration-300
+    ">
 
-            <!-- Logo -->
-            <a href="/" class="flex items-center gap-3 flex-shrink-0">
-                <img src="img/africore_dark_font.png" alt="Africore Logistics" class="h-10 w-auto" />
-            </a>
+        <!-- Logo (inverted to white for dark background) -->
+        <a href="/" class="flex items-center gap-3 flex-shrink-0">
+            <img src="img/africore_dark_font.png" alt="Africore Logistics"
+                 class="h-10 w-auto filter brightness" />
+        </a>
 
-            <!-- Navigation -->
-            <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-700">
-                <a href="/" class="hover:text-red-600 transition-colors">Home</a>
-                <a href="/about" class="hover:text-red-600 transition-colors">About Us</a>
+        <!-- Navigation links -->
+        <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-white/90">
+            <a href="/" class="hover:text-red-400 transition-colors">Home</a>
+            <a href="/about" class="hover:text-red-400 transition-colors">About Us</a>
 
-                <!-- Services Dropdown -->
-                <div class="relative group">
-                    <button class="flex items-center gap-1 hover:text-red-600 transition-colors">
-                        Our Services
-                        <i class="fa-solid fa-chevron-down text-xs"></i>
-                    </button>
-                    <div class="absolute left-0 mt-4 w-72 rounded-2xl bg-white shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                        <a href="/services/corridor-expertise" class="block px-5 py-3 hover:bg-gray-50">Corridor Expertise</a>
-                        <a href="/services/integrated-supply-chain" class="block px-5 py-3 hover:bg-gray-50">Integrated Supply Chain</a>
-                        <a href="/services/warehousing-network" class="block px-5 py-3 hover:bg-gray-50">Warehousing Network</a>
-                        <a href="/services/customs-compliance" class="block px-5 py-3 hover:bg-gray-50 rounded-b-2xl">Customs Compliance</a>
-                    </div>
+            <!-- Services Dropdown -->
+            <div class="relative group">
+                <button class="flex items-center gap-1 hover:text-red-400 transition-colors">
+                    Our Services
+                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                </button>
+                <div class="absolute left-0 mt-4 w-72 rounded-2xl bg-white/90 backdrop-blur-md shadow-2xl border border-white/20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    <a href="/services/corridor-expertise" class="block px-5 py-3 hover:bg-gray-100/50 text-gray-800">Corridor Expertise</a>
+                    <a href="/services/integrated-supply-chain" class="block px-5 py-3 hover:bg-gray-100/50 text-gray-800">Integrated Supply Chain</a>
+                    <a href="/services/warehousing-network" class="block px-5 py-3 hover:bg-gray-100/50 text-gray-800">Warehousing Network</a>
+                    <a href="/services/customs-compliance" class="block px-5 py-3 hover:bg-gray-100/50 text-gray-800 rounded-b-2xl">Customs Compliance</a>
                 </div>
-
-                <!-- <a href="/corridors" class="hover:text-red-600 transition-colors">Geographic Footprints</a> -->
-                <a href="/industries" class="hover:text-red-600 transition-colors">Industries</a>
-                <a href="/why-africore" class="hover:text-red-600 transition-colors">Why Africore</a>
-                <!-- <a href="/resources" class="hover:text-red-600 transition-colors">Resources</a> -->
             </div>
 
-            <!-- Right Actions -->
-            <div class="hidden md:flex items-center gap-3">
-                <a href="/portal" class="brand-outline-button px-5 py-2.5 text-sm font-semibold border rounded-full transition">Client Portal</a>
-                <a href="/contact" class="px-6 py-2.5 text-sm font-semibold text-white bg-red-600 hover:bg-red-700 rounded-full transition shadow-lg">
-                    Get a Quote
-                    <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                </a>
-            </div>
+            <a href="/industries" class="hover:text-red-400 transition-colors">Industries</a>
+            <a href="/why-africore" class="hover:text-red-400 transition-colors">Why Africore</a>
+        </div>
 
-            <!-- Mobile Menu Button -->
-            <button class="lg:hidden text-2xl text-gray-700" aria-label="Open menu" title="Open menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+        <!-- Right Actions -->
+        <div class="hidden md:flex items-center gap-3">
+            <a href="/portal" class="
+                px-5 py-2.5 text-sm font-semibold
+                border border-white/40 text-white/90
+                hover:bg-white/10 hover:border-white/60
+                rounded-full transition
+            ">
+                Client Portal
+            </a>
+            <a href="/contact" class="
+                px-6 py-2.5 text-sm font-semibold text-white
+                bg-red-600 hover:bg-red-700
+                rounded-full transition shadow-lg
+            ">
+                Get a Quote
+                <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+            </a>
+        </div>
 
-        </nav>
-    </header>
+        <!-- Mobile Menu Button -->
+        <button class="lg:hidden text-2xl text-white/80" aria-label="Open menu" title="Open menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </nav>
+</header>
 
     <!-- ============================================================
     MAIN
@@ -442,12 +461,9 @@
 
                 <!-- Top Icon & Badge -->
                 <div class="flex flex-col items-center justify-center gap-3 mb-6">
-                    <div
-                        class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 bg-gray-50 overflow-hidden">
-                        <img src="img/branding_guide/icon.png" alt="Brand element" class="h-6 w-6 object-contain" />
-                    </div>
+            
                     <span
-                        class="brand-pill inline-block px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">
+                        class="brand-pill inline-block px-4 py-1.5 rounded-full text-[15px] font-bold uppercase">
                         About Us
                     </span>
                 </div>

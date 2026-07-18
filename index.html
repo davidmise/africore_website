@@ -81,18 +81,7 @@
             /* margin-bottom removed to connect with next section */
         }
 
-        .section-about,
-        .section-why,
-        .section-blog {
-            margin-bottom: var(--section-gap);
-        }
 
-        .section-services,
-        .section-industries,
-        .section-testimonials,
-        .section-cta {
-            margin-bottom: var(--section-gap);
-        }
 
         .bg-red-600 {
             background-color: var(--brand-red) !important;
@@ -264,6 +253,39 @@
                 right: 1rem !important;
                 bottom: 1rem !important;
             }
+        }
+
+        /* ── Nav hide-on-scroll-down ── */
+        header {
+            transition: transform 0.35s ease;
+        }
+        header.nav-hidden {
+            transform: translateY(-120%);
+        }
+
+        /* ── Gradient square bullet ── */
+        .brand-gradient-sq {
+            background: linear-gradient(135deg, #ed1c24 0%, #fac56e 70%);
+        }
+
+        /* ── CTA brand orbs – decorative absolutely-positioned icons ── */
+        .brand-orb {
+            position: absolute;
+            left: -6rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22rem;
+            height: 22rem;
+            opacity: 0.06;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .brand-orb.right {
+            left: auto;
+            right: -6rem;
+            top: 50%;
+            transform: translateY(-50%);
         }
     </style>
 </head>
@@ -464,11 +486,9 @@
 
                 <!-- Top Icon & Badge -->
                 <div class="flex flex-col items-center justify-center gap-3 mb-6">
-                    <div
-                        class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 bg-gray-50 overflow-hidden">
-                        <img src="img/branding_guide/icon.png" alt="Brand element" class="h-6 w-6 object-contain" />
-                    </div>
-                    <span class="brand-pill inline-block px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">
+            
+                    <span
+                        class="brand-pill inline-block px-4 py-1.5 rounded-full gradient-text text-[20px] font-bold uppercase">
                         About Us
                     </span>
                 </div>
@@ -476,7 +496,7 @@
                 <!-- Headline -->
                 <h2 class="text-3xl md:text-4xl font-medium leading-tight text-[#1e1e2a] max-w-4xl mx-auto">
                     At Africore, we are<br />
-                    <span class="text-gray-400">redefining logistics</span> to provide<br />
+                    <span class="gradient-text">redefining logistics</span> to provide<br />
                     transparency and sustainability across Africa.
                 </h2>
 
@@ -538,7 +558,7 @@
         <!-- ============================================================
         PHASE 2.7 – SERVICES OVERVIEW (ALIGNMENT & HOVER FIXED)
         ============================================================ -->
-        <section class="section-services bg-[#18181b] py-24" x-data="{
+        <section class="section-services bg-[#000000] py-24" x-data="{
                     currentIndex: 0,
                     visibleCards: 1,
                     services: [
@@ -597,7 +617,7 @@
                 <!-- Top Header Row -->
                 <div class="flex items-center justify-between mb-4">
                     <span
-                        class="brand-pill inline-block rounded-full px-5 py-1.5 text-[10px] font-bold uppercase bg-white/5 text-gray-300 border-gray-700/60">
+                        class="brand-pill inline-block rounded-full px-5 py-1.5 text-[20px] font-bold uppercase bg-white/5 gradient-text border-gray-700/60">
                         Our Services
                     </span>
                     <!-- Navigation Arrows -->
@@ -615,7 +635,7 @@
 
                 <!-- Main Headline -->
                 <h2 class="text-3xl md:text-5xl font-medium text-white max-w-2xl mb-10 leading-tight">
-                    Clean mobility & supply chain <span class="text-red-600">services</span>
+                    Clean mobility & supply chain <span class="gradient-text">services</span>
                 </h2>
 
                 <!-- Carousel / Cards Grid -->
@@ -680,7 +700,7 @@
                     <div class="space-y-8">
                         <!-- Top Badge -->
                         <div>
-                            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest block">
+                            <span class="text-[20px] font-bold gradient-text uppercase tracking-widest block">
                                 Why Choose Us
                             </span>
                             <h2 class="text-3xl md:text-4xl font-medium text-[#1e1e2a] mt-3 leading-tight">
@@ -690,7 +710,7 @@
 
                         <!-- Feature 1 -->
                         <div class="flex gap-4">
-                            <div class="w-2.5 h-2.5 bg-red-600 rounded-[2px] mt-1.5 shrink-0"></div>
+                            <div class="w-2.5 h-2.5 brand-gradient-sq rounded-[2px] mt-1.5 shrink-0"></div>
                             <div>
                                 <h4 class="font-medium text-lg text-[#1e1e2a]">Innovative logistics technology</h4>
                                 <p class="text-gray-500 text-sm leading-relaxed mt-1">
@@ -702,7 +722,7 @@
 
                         <!-- Feature 2 -->
                         <div class="flex gap-4">
-                            <div class="w-2.5 h-2.5 bg-red-600 rounded-[2px] mt-1.5 shrink-0"></div>
+                            <div class="w-2.5 h-2.5 brand-gradient-sq rounded-[2px] mt-1.5 shrink-0"></div>
                             <div>
                                 <h4 class="font-medium text-lg text-[#1e1e2a]">Customized logistics solutions</h4>
                                 <p class="text-gray-500 text-sm leading-relaxed mt-1">
@@ -714,7 +734,7 @@
 
                         <!-- Feature 3 -->
                         <div class="flex gap-4">
-                            <div class="w-2.5 h-2.5 bg-red-600 rounded-[2px] mt-1.5 shrink-0"></div>
+                            <div class="w-2.5 h-2.5 brand-gradient-sq rounded-[2px] mt-1.5 shrink-0"></div>
                             <div>
                                 <h4 class="font-medium text-lg text-[#1e1e2a]">Commitment to future</h4>
                                 <p class="text-gray-500 text-sm leading-relaxed mt-1">
@@ -793,7 +813,7 @@
 
                 <!-- Section Header -->
                 <div class="mb-8">
-                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Industries we serve</p>
+                    <span class="brand-pill inline-block px-4 py-1.5 rounded-full gradient-text text-[20px] font-bold uppercase">Industries we serve</span>
                     <h1 class="text-3xl md:text-4xl font-medium text-[#333333] mt-2 max-w-2xl">
                         Building smarter, cleaner supply chains across diverse industries
                     </h1>
@@ -934,7 +954,7 @@
                 <!-- Header Content -->
                 <div class="mb-14">
                     <h2 class="text-3xl md:text-5xl font-medium text-white leading-tight">
-                        What our Africore <span class="text-red-600">clients say</span>
+                        What our Africore <span class="gradient-text">clients say</span>
                     </h2>
                     <p class="text-gray-300 text-sm md:text-base mt-3 max-w-2xl mx-auto">
                         Trusted by forward-thinking businesses for sustainable logistics excellence.
@@ -964,8 +984,9 @@
 
                                     <!-- Avatar & Identity -->
                                     <div class="flex items-center gap-4 mb-4">
-                                        <img :src="client.image" :alt="client.name"
-                                            class="w-12 h-12 rounded-full object-cover border border-gray-200">
+                                        <div class="w-12 h-12 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0">
+                                            <i class="fa-solid fa-user text-gray-400 text-xl"></i>
+                                        </div>
                                         <div>
                                             <h4 class="font-semibold text-gray-900 text-base" x-text="client.name"></h4>
                                             <p class="text-gray-500 text-sm" x-text="client.role"></p>
@@ -1064,11 +1085,11 @@
                 <!-- Header Section -->
                 <div class="flex flex-col md:flex-row justify-between items-end md:items-center gap-6 mb-12">
                     <div>
-                        <span class="brand-pill inline-block rounded-full px-4 py-1.5 text-[10px] font-bold uppercase">
+                        <span class="brand-pill inline-block rounded-full px-4 py-1.5 text-[20px] font-bold uppercase gradient-text">
                             Our Blog
                         </span>
                         <h2 class="text-3xl md:text-5xl font-medium text-gray-900 leading-tight mt-3 max-w-2xl">
-                            Sustainability delivered: Impactful <span class="text-gray-400">case studies</span> from our
+                            Sustainability delivered: Impactful <span class="gradient-text">case studies</span> from our
                             clients
                         </h2>
                     </div>
@@ -1147,12 +1168,12 @@
 
             <div class="section-layer-content max-w-4xl mx-auto px-4 md:px-6 text-center">
 
-                <img src="img/branding_guide/icon.png" alt="Brand icon"
-                    class="mx-auto h-14 w-14 object-contain opacity-95 mb-6" />
+                <!-- <img src="img/branding_guide/icon.png" alt="Brand icon"
+                    class="mx-auto h-14 w-14 object-contain opacity-95 mb-6" /> -->
 
                 <!-- Headline -->
                 <h2 class="text-4xl md:text-6xl font-medium text-white leading-tight drop-shadow-md">
-                    Ready to streamline cross-border<br />logistics across Tanzania and SADC?
+                    Join the mission for <span class="gradient-text">Transparent & Cost-Effective Logistics Across Africa</span><br />
                 </h2>
 
                 <!-- Subtext -->
@@ -1196,6 +1217,7 @@
 
 
                 <!-- Main Footer Cards Grid -->
+                 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
                     <!-- Left Card -->
@@ -1206,7 +1228,7 @@
 
                             <!-- Headline -->
                             <h2 class="text-[32px] leading-tight font-normal text-gray-900 mt-2">
-                                We believe <span class="font-bold">real change</span> starts<br>
+                                We believe <span class="font-bold gradient-text">real change</span> starts<br>
                                 deep within the supply chain.
                             </h2>
 
@@ -1315,6 +1337,22 @@
             <img src="img/branding_guide/icon.png" alt="Brand icon" class="h-6 w-6 object-contain" />
         </button>
     </main>
+
+    <script>
+        (function () {
+            var lastY = 0;
+            var hdr = document.querySelector('header');
+            window.addEventListener('scroll', function () {
+                var y = window.scrollY;
+                if (y < 80 || y < lastY) {
+                    hdr.classList.remove('nav-hidden');
+                } else {
+                    hdr.classList.add('nav-hidden');
+                }
+                lastY = y;
+            }, { passive: true });
+        })();
+    <\/script>
 
     <!-- Alpine.js ready -->
     <div x-data="{ loaded: true }" x-init="console.log('Alpine.js ready ✅')" class="hidden"></div>
