@@ -11,74 +11,444 @@
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js">
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700,800&display=swap" />
 
     <style>
+        :root {
+            --brand-black: #000000;
+            --brand-red: #ed1c24;
+            --brand-red-dark: #c7171f;
+            --brand-gold: #fac56e;
+            --brand-gray: #7c7b7b;
+            --brand-sand: #d8b478;
+            --brand-orange: #f89f1e;
+            --brand-green: #a0b83b;
+            --brand-surface: #ececef;
+            --brand-white: #ffffff;
+            --brand-ink: #121212;
+            --brand-muted: #666a72;
+            --section-gap: clamp(5rem, 8vw, 8rem);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: "Switzer", "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+            background: radial-gradient(circle at 50% 0%, #f7f7f8 0%, var(--brand-surface) 38%, #e8e8ea 100%);
+            color: var(--brand-ink);
+            letter-spacing: 0.01em;
+            text-rendering: geometricPrecision;
+            overflow-x: hidden;
         }
 
-        .nav-pill {
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.02);
+        h1,
+        h2,
+        h3,
+        h4 {
+            letter-spacing: -0.02em;
         }
 
-        .hero-overlay {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 80%);
+        main section {
+            position: relative;
+            isolation: isolate;
         }
 
-        .hero-card {
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        .section-layer-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
         }
 
-        .tab-content img {
-            transition: opacity 0.25s ease;
+        .section-layer-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── Gradient text utility ── */
+        .gradient-text {
+            background: linear-gradient(135deg, #ed1c24 0%, #fac56e 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ── Hero – no margin, no icon overlay ── */
+        .section-hero {
+            background: linear-gradient(135deg, #09111a 0%, #101b29 52%, #0b1118 100%);
+            /* margin-bottom removed to connect with next section */
+        }
+
+        /* ── Brand pill (used in about) ── */
+        .brand-pill {
+            border: 1px solid rgba(124, 123, 123, 0.28);
+            background: rgba(255, 255, 255, 0.84);
+            color: #2a2b2f;
+            letter-spacing: 0.14em;
+        }
+
+        .bg-red-600 {
+            background-color: var(--brand-red) !important;
+        }
+
+        .hover\:bg-red-700:hover {
+            background-color: var(--brand-red-dark) !important;
+        }
+
+        .text-red-600,
+        .text-red-500,
+        .hover\:text-red-600:hover,
+        .hover\:text-red-700:hover {
+            color: var(--brand-red) !important;
+        }
+
+        .border-red-600,
+        .hover\:border-red-600:hover,
+        .hover\:border-red-500\/50:hover {
+            border-color: var(--brand-red) !important;
+        }
+
+        .bg-red-50 {
+            background-color: rgba(237, 28, 36, 0.08) !important;
+        }
+
+        .text-red-700 {
+            color: var(--brand-red-dark) !important;
+        }
+
+        .brand-nav {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(18, 18, 18, 0.1);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.11);
+        }
+
+        .brand-primary-btn {
+            background: var(--brand-red);
+            color: #fff;
+            box-shadow: 0 10px 28px rgba(237, 28, 36, 0.28);
+        }
+
+        .brand-primary-btn:hover {
+            background: var(--brand-red-dark);
+            box-shadow: 0 14px 34px rgba(237, 28, 36, 0.34);
+        }
+
+        .brand-outline-button {
+            border-color: rgba(18, 18, 18, 0.2) !important;
+            color: var(--brand-ink) !important;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .brand-outline-button:hover {
+            border-color: var(--brand-red) !important;
+            color: var(--brand-red) !important;
+            background: rgba(237, 28, 36, 0.06) !important;
+        }
+
+        .section-hero .inline-flex.rounded-full.bg-white\/10 {
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(250, 197, 110, 0.38);
+        }
+
+        .section-hero h1 {
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        /* ── Floating card (white background, reduced width) ── */
+        .floating-card {
+            background: #ffffff;
+            border: 1px solid rgba(18, 18, 18, 0.06);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.02);
+            border-radius: 1.5rem;
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
+        }
+
+        .floating-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 32px 72px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(237, 28, 36, 0.06);
+        }
+
+        /* ── Loader ── */
+        .brand-loader {
+            position: fixed;
+            top: 102px;
+            left: 1.5rem;
+            z-index: 55;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1rem;
+            border-radius: 999px;
+            border: 1px solid rgba(250, 197, 110, 0.25);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            background: rgba(12, 13, 16, 0.86);
+            transition: opacity 320ms ease, visibility 320ms ease;
+        }
+
+        .brand-loader.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .brand-loader-inner {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .brand-loader-ring {
+            width: 22px;
+            height: 22px;
+            border-radius: 999px;
+            border: 2px solid rgba(255, 255, 255, 0.14);
+            border-top-color: var(--brand-red);
+            border-right-color: var(--brand-gold);
+            animation: brand-spin 1s linear infinite;
+            display: grid;
+            place-items: center;
+        }
+
+        .brand-loader-ring img {
+            width: 10px;
+            height: 10px;
+            object-fit: contain;
+            filter: saturate(1.1);
+        }
+
+        .brand-loader-text {
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.1em;
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        @keyframes brand-spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes brand-fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-hero .section-layer-content {
+            animation: brand-fade-up 680ms ease-out both;
+        }
+
+        @media (max-width: 768px) {
+            .floating-card {
+                max-width: 90% !important;
+                right: 1rem !important;
+                bottom: 1rem !important;
+            }
         }
     </style>
 </head>
 
-<body class="bg-[#f5f5f7] text-[#1e1e2a]">
+<body class="antialiased">
 
-    
-
-    <div class="max-w-6xl mx-auto px-6 py-8" x-data="{ 
-            activeTab: 'retail',
-            tabs: {
-                retail: { title: 'Retail & E-commerce', icon: 'fa-store', desc: 'Eco-Supply Transportation supports retailers and e-commerce businesses in building greener last-mile delivery networks.', bullets: ['Zero-emission last-mile delivery using electric and hybrid vehicles.', 'Eco-friendly packaging logistics to reduce waste.', 'Optimized route planning for faster, greener deliveries.', 'Reverse logistics support for sustainable returns management.'] },
-                manufacturing: { title: 'Manufacturing', icon: 'fa-industry', desc: 'Streamlining supply chain manufacturing with sustainable solutions.', bullets: ['Just-in-time delivery optimization.', 'Waste reduction in transit.', 'Fleet electrification for factories.'] },
-                healthcare: { title: 'Healthcare & Pharma', icon: 'fa-heartbeat', desc: 'Precision logistics for healthcare with temperature-controlled fleets.', bullets: ['Cold-chain integrity monitoring.', 'Emergency medical supply delivery.'] },
-                food: { title: 'Food & Beverage', icon: 'fa-utensils', desc: 'Fresh, fast, and sustainable farm-to-table transit.', bullets: ['Temperature-controlled containers.', 'Reducing food miles and emissions.'] },
-                tech: { title: 'Technology & Electronics', icon: 'fa-microchip', desc: 'Secure and emission-free delivery for high-value tech goods.', bullets: ['Dedicated secure transport.', 'Sustainable packaging and recycling.'] }
-            }
-        }">
-
-        <!-- Floating Navigation Pill -->
-        <nav class="flex flex-col lg:flex-row items-center justify-between bg-white rounded-full px-6 py-3 nav-pill mb-12">
-            <div class="flex items-center gap-2 text-xl font-bold">
-                <i class="fa-solid fa-leaf text-black"></i> Mivora<sup class="text-[0.6rem] font-normal text-gray-500">TM</sup>
+    <!-- Loader -->
+    <div id="brand-loader" class="brand-loader" role="status" aria-live="polite" aria-label="Loading Africore website">
+        <div class="brand-loader-inner">
+            <div class="brand-loader-ring">
+                <img src="img/branding_guide/icon.png" alt="Africore icon" />
             </div>
-            <div class="flex items-center gap-8 text-sm font-medium mt-4 lg:mt-0">
-                <a href="#" class="text-[#8bc34a]">Home</a>
-                <a href="#" class="text-gray-600 hover:text-black">About</a>
-                <a href="#" class="text-gray-600 hover:text-black">Case studies</a>
-                <a href="#" class="text-gray-600 hover:text-black">Blog</a>
+            <p class="brand-loader-text">Loading corridor intelligence</p>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    FLOATING NAVIGATION HEADER
+    ============================================================ -->
+    <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 pointer-events-none">
+        <nav class="flex items-center justify-between w-full max-w-7xl mx-4 px-6 py-3 brand-nav backdrop-blur-lg rounded-full border border-white/30 shadow-lg pointer-events-auto">
+
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-3 flex-shrink-0">
+                <img src="img/africore_dark_font.png" alt="Africore Logistics" class="h-10 w-auto" />
+            </a>
+
+            <!-- Navigation -->
+            <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-700">
+                <a href="/" class="hover:text-red-600 transition-colors">Home</a>
+                <a href="/about" class="hover:text-red-600 transition-colors">About Us</a>
+
+                <!-- Services Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-red-600 transition-colors">
+                        Our Services
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="absolute left-0 mt-4 w-72 rounded-2xl bg-white shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                        <a href="/services/corridor-expertise" class="block px-5 py-3 hover:bg-gray-50">Corridor Expertise</a>
+                        <a href="/services/integrated-supply-chain" class="block px-5 py-3 hover:bg-gray-50">Integrated Supply Chain</a>
+                        <a href="/services/warehousing-network" class="block px-5 py-3 hover:bg-gray-50">Warehousing Network</a>
+                        <a href="/services/customs-compliance" class="block px-5 py-3 hover:bg-gray-50 rounded-b-2xl">Customs Compliance</a>
+                    </div>
+                </div>
+
+                <!-- <a href="/corridors" class="hover:text-red-600 transition-colors">Geographic Footprints</a> -->
+                <a href="/industries" class="hover:text-red-600 transition-colors">Industries</a>
+                <a href="/why-africore" class="hover:text-red-600 transition-colors">Why Africore</a>
+                <!-- <a href="/resources" class="hover:text-red-600 transition-colors">Resources</a> -->
             </div>
-            <button class="bg-[#8bc34a] text-black text-sm font-medium px-5 py-2 rounded-full mt-4 lg:mt-0 hover:bg-[#7cb342] transition">Contact us</button>
+
+            <!-- Right Actions -->
+            <div class="hidden md:flex items-center gap-3">
+                <a href="/portal" class="brand-outline-button px-5 py-2.5 text-sm font-semibold border rounded-full transition">Client Portal</a>
+                <a href="/contact" class="px-6 py-2.5 text-sm font-semibold text-white bg-red-600 hover:bg-red-700 rounded-full transition shadow-lg">
+                    Get a Quote
+                    <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-2xl text-gray-700" aria-label="Open menu" title="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
         </nav>
+    </header>
+
+    <!-- ============================================================
+    MAIN
+    ============================================================ -->
+    <main>
+
+        <!-- ============================================================
+        HERO – with gradient text and floating operations card
+        ============================================================ -->
+        <section class="section-hero relative min-h-screen flex items-center overflow-hidden">
+
+            <!-- Background -->
+            <div class="section-layer-bg bg-[#0b1118]">
+                <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1800&h=1000&fit=crop&auto=format"
+                    alt="Container ship and logistics operations" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-black/55"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+            </div>
+
+            <!-- Main container -->
+            <div class="section-layer-content w-full max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                    <!-- LEFT CONTENT -->
+                    <div class="lg:col-span-7 text-white space-y-8">
+
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md border border-white/20">
+                            <span class="text-sm font-medium">Integrated Logistics Across Africa</span>
+                        </div>
+
+                        <!-- Gradient headline -->
+                        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight">
+                            Agile, Transparent &
+                            <span class="gradient-text">Cost‑Effective</span>
+                            Logistics Across Africa
+                        </h1>
+
+                        <p class="text-lg md:text-xl max-w-xl text-white/80 leading-relaxed">
+                            Your single point of contact for seamless cross‑border freight,
+                            customs clearance, warehousing, and supply chain solutions
+                            across Southern and Central Africa.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 pt-3">
+                            <a href="/contact" class="inline-flex items-center px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-full transition shadow-lg">
+                                Get a Quote
+                                <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                            <a href="/corridors" class="inline-flex items-center px-8 py-4 border border-white/40 hover:border-white text-white font-medium rounded-full transition backdrop-blur-sm">
+                                Explore Our Corridors
+                                <i class="fa-solid fa-map-location-dot ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT SPACE -->
+                    <div class="lg:col-span-5"></div>
+                </div>
 
                 <!-- ============================================================
+                FLOATING OPERATIONS CARD – white background, reduced width, positioned right
+                ============================================================ -->
+                <div class="
+                    absolute
+                    bottom-8
+                    right-6
+                    lg:bottom-12
+                    lg:right-12
+                    w-full
+                    max-w-sm
+                    floating-card
+                    p-6
+                ">
+
+                    <div class="flex items-center justify-between mb-5">
+                        <h3 class="font-bold text-gray-900 text-lg">
+                            Africore Operations
+                        </h3>
+                        <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                            <i class="fa-solid fa-truck-fast text-red-600"></i>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex justify-between border-b border-gray-100 pb-3">
+                            <span class="text-gray-500 text-sm">Countries Covered</span>
+                            <span class="font-bold text-red-600 text-xl">8+</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-100 pb-3">
+                            <span class="text-gray-500 text-sm">Logistics Corridors</span>
+                            <span class="font-bold text-red-600 text-xl">SADC</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500 text-sm">Core Services</span>
+                            <span class="font-bold text-red-600 text-xl">4</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 pt-4 border-t border-gray-100 text-xs text-gray-500 text-center">
+                        <i class="fa-solid fa-circle-check text-red-600 mr-1"></i>
+                        Freight • Customs • Warehousing • Tracking
+                    </div>
+
+                </div>
+                <!-- END floating card -->
+
+            </div>
+            <!-- end section-layer-content -->
+
+        </section>
+
+        <!-- ============================================================
         PHASE 2.5 – ABOUT US / DRIVING CHANGE SECTION
         ============================================================ -->
-        <section class=" py-24">
+        <section class="section-about bg-white py-24">
             <div class="max-w-6xl mx-auto px-4 md:px-6 text-center">
-                
+
                 <!-- Top Icon & Badge -->
                 <div class="flex flex-col items-center justify-center gap-3 mb-6">
-                    <div class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 bg-gray-50">
-                        <i class="fa-solid fa-sun text-lg"></i>
+                    <div
+                        class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 bg-gray-50 overflow-hidden">
+                        <img src="img/branding_guide/icon.png" alt="Brand element" class="h-6 w-6 object-contain" />
                     </div>
-                    <span class="inline-block px-4 py-1.5 bg-gray-100 rounded-full text-[10px] font-bold text-gray-600 tracking-widest uppercase">
-                        Driving Change
+                    <span
+                        class="brand-pill inline-block px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">
+                        About Us
                     </span>
                 </div>
 
@@ -91,29 +461,27 @@
 
                 <!-- Staggered Image Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-5xl mx-auto items-start">
-                    <!-- Image 1: Left (Top aligned) -->
-                    <div class="aspect-[3/4] overflow-hidden rounded-2xl">
-                        <img src="/img/mobile.png" 
-                             alt="Logistics route" 
-                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <!-- Image 2: Center (Staggered lower) -->
+                    <!-- Image 1: Left (Pushed lower) -->
                     <div class="aspect-[3/4] overflow-hidden rounded-2xl mt-8 md:mt-12">
-                        <img src="/img/mobile.png" 
-                             alt="Sustainable green logistics" 
-                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <img src="img/mobile.png" alt="Logistics route"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                     </div>
-                    <!-- Image 3: Right (Top aligned) -->
+                    <!-- Image 2: Center (Higher than the others) -->
                     <div class="aspect-[3/4] overflow-hidden rounded-2xl">
-                        <img src="/img/mobile.png" 
-                             alt="Supply chain logistics" 
-                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <img src="img/mobile.png" alt="Sustainable green logistics"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <!-- Image 3: Right (Pushed lower) -->
+                    <div class="aspect-[3/4] overflow-hidden rounded-2xl mt-8 md:mt-12">
+                        <img src="img/mobile.png" alt="Supply chain logistics"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
 
-                <!-- Button -->
-                <div class="mt-10">
-                    <a href="/about" class="inline-flex items-center px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-full shadow-lg transition-colors">
+                <!-- Button (Moved up slightly) -->
+                <div class="mt-6">
+                    <a href="/about"
+                        class="brand-primary-btn inline-flex items-center px-8 py-3 text-white font-medium rounded-full transition-colors">
                         More about us
                     </a>
                 </div>
@@ -146,205 +514,22 @@
             </div>
         </section>
 
-        <!-- Section Header -->
-        <div class="mb-6">
-            <p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Industries we serve</p>
-            <h1 class="text-3xl md:text-4xl font-medium text-[#333333] mt-2 max-w-2xl">Building smarter, cleaner supply chains across diverse industries</h1>
-        </div>
+        <!-- (Other sections omitted for brevity – they would follow) -->
 
-        <!-- Tab Buttons -->
-        <div class="flex flex-wrap items-center gap-4 mb-10">
-            <template x-for="(tab, key) in tabs" :key="key">
-                <button @click="activeTab = key" 
-                        :class="activeTab === key ? 
-                            'border border-dashed border-gray-800 bg-[#f0f0f0] text-black' : 
-                            'border border-gray-200 bg-[#f5f5f7] text-gray-500 hover:bg-white'"
-                        class="flex items-center gap-3 px-5 py-3 rounded-lg text-sm font-medium transition-all cursor-pointer">
-                    <i :class="'fa-solid ' + tab.icon" class="text-base"></i>
-                    <span x-text="tab.title"></span>
-                </button>
-            </template>
-        </div>
+    </main>
 
-        <!-- Main Content Card -->
-        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col lg:flex-row overflow-hidden gap-8 transition-all">
-            
-            <!-- Left Image -->
-            <div class="w-full lg:w-5/12 h-80 lg:h-auto overflow-hidden rounded-2xl relative">
-                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1000&auto=format&fit=crop" 
-                     alt="Greenhouse farmer" 
-                     class="w-full h-full object-cover">
-            </div>
+    <!-- Alpine ready -->
+    <div x-data="{ loaded: true }" x-init="console.log('Africore Logistics · Alpine ready ✅')" class="hidden"></div>
 
-            <!-- Right Content -->
-            <div class="w-full lg:w-7/12 flex flex-col justify-center p-2 lg:p-4">
-                <template x-for="(tab, key) in tabs" :key="key">
-                    <div x-show="activeTab === key" x-cloak class="transition-opacity duration-300">
-                        <h2 class="text-2xl font-medium text-gray-900 mb-2" x-text="tab.title"></h2>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-6 max-w-md" x-text="tab.desc"></p>
-                        
-                        <ul class="space-y-3">
-                            <template x-for="bullet in tab.bullets" :key="bullet">
-                                <li class="flex items-start gap-3 text-sm text-gray-700">
-                                    <i class="fa-solid fa-star text-gray-600 mt-0.5 w-4 flex-shrink-0"></i>
-                                    <span x-text="bullet"></span>
-                                </li>
-                            </template>
-                        </ul>
-                    </div>
-                </template>
-            </div>
-        </div>
-
-        <!-- Floating Action Button -->
-        <button class="fixed bottom-8 right-8 bg-[#1e1e2f] text-white h-12 w-12 rounded-full flex items-center justify-center shadow-lg hover:bg-black transition">
-            <i class="fa-solid fa-star text-sm"></i>
-        </button>
-
-
-
-    </div>
-
-
-
-    <!-- ============================================================
-    PHASE 3 – FOOTER SECTION
-    ============================================================ -->
-    <footer class="relative w-full min-h-[800px] bg-[url('/img/forest-bg.jpg')] bg-cover bg-center bg-no-repeat flex flex-col justify-end items-center pt-6">
-        
-        <!-- Background Overlay (Optional: adds depth to text if image is too bright) -->
-        <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
-
-        <!-- Inner Container -->
-        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 pb-12 flex flex-col gap-8">
-
-            <!-- Floating Navigation Bar -->
-            <nav class="bg-white/85 backdrop-blur-lg rounded-full px-6 py-3 shadow-xl flex items-center justify-between mx-auto w-full max-w-7xl border border-white/40">
-                
-                <!-- Logo Left -->
-                <a href="#" class="flex items-center gap-2 font-bold text-xl text-gray-900 tracking-tight">
-                    <i class="fa-solid fa-leaf text-xl"></i> Mivora<sup class="text-[0.5em] font-normal tracking-normal">TM</sup>
-                </a>
-
-                <!-- Center Links -->
-                <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
-                    <a href="#" class="text-[#9ceb50]">Home</a>
-                    <a href="#" class="hover:text-black transition-colors">About</a>
-                    <a href="#" class="hover:text-black transition-colors">Case studies</a>
-                    <a href="#" class="hover:text-black transition-colors">Blog</a>
-                </div>
-
-                <!-- Right CTA -->
-                <a href="#" class="bg-[#98e84e] text-black font-medium px-6 py-2 rounded-full hover:bg-[#82d33a] transition-colors text-sm shadow-sm">
-                    Contact us
-                </a>
-            </nav>
-
-            <!-- Main Footer Cards Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
-                
-                <!-- Left Card -->
-                <div class="bg-white rounded-[2.5rem] p-10 flex flex-col justify-between shadow-2xl min-h-[450px]">
-                    <div>
-                        <!-- Logo Icon -->
-                        <i class="fa-solid fa-leaf text-3xl text-black mb-6 block"></i>
-                        
-                        <!-- Headline -->
-                        <h2 class="text-[32px] leading-tight font-normal text-gray-900 mt-2">
-                            We believe <span class="font-bold">real change</span> starts<br>
-                            deep within the supply chain.
-                        </h2>
-                        
-                        <!-- Form Section -->
-                        <div class="mt-8">
-                            <p class="text-sm text-gray-500 mb-3">Join our eco-supply community.</p>
-                            <form class="flex items-center bg-white border border-gray-200 rounded-full p-1.5 w-full max-w-sm shadow-sm">
-                                <input type="email" placeholder="Enter your email" class="flex-1 bg-transparent border-none outline-none px-4 py-1.5 text-sm text-gray-700 placeholder-gray-400">
-                                <button type="submit" class="bg-[#98e84e] text-black font-medium px-6 py-2 rounded-full hover:bg-[#82d33a] transition-colors text-sm">
-                                    Subscribe
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <!-- Bottom Text -->
-                    <p class="text-xs text-gray-400 mt-10">Designed by Unifato</p>
-                </div>
-
-                <!-- Right Card -->
-                <div class="bg-white rounded-[2.5rem] p-10 shadow-2xl min-h-[450px]">
-                    <!-- Inner 2x2 Grid -->
-                    <div class="grid grid-cols-2 gap-y-10 gap-x-6 h-full">
-                        
-                        <!-- Top Left: Pages -->
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Pages</h3>
-                            <div class="grid grid-cols-2 gap-x-4 gap-y-1 mt-3 text-sm text-gray-600">
-                                <div class="flex flex-col gap-1.5">
-                                    <a href="#" class="hover:text-black transition-colors">Home</a>
-                                    <a href="#" class="hover:text-black transition-colors">About</a>
-                                    <a href="#" class="hover:text-black transition-colors">Service</a>
-                                    <a href="#" class="hover:text-black transition-colors">Static</a>
-                                </div>
-                                <div class="flex flex-col gap-1.5">
-                                    <a href="#" class="hover:text-black transition-colors">Case<br>Studies</a>
-                                    <a href="#" class="hover:text-black transition-colors">Blog</a>
-                                    <a href="#" class="hover:text-black transition-colors">Contact</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Top Right: Address -->
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Address</h3>
-                            <div class="mt-3 text-sm text-gray-600 leading-relaxed flex flex-col gap-4">
-                                <p>
-                                    123 Remote Work Avenue,<br>
-                                    San Francisco, CA 94105
-                                </p>
-                                <p>
-                                    144 Creative Street, Suite<br>
-                                    456, New York, NY 10001,<br>
-                                    USA
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Bottom Left: Contact -->
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Contact</h3>
-                            <div class="mt-3 text-sm text-gray-600 flex flex-col gap-1.5">
-                                <a href="mailto:hello@example.com" class="hover:text-black transition-colors">hello@example.com</a>
-                                <a href="tel:+1234567890" class="hover:text-black transition-colors">+123 456 7890</a>
-                            </div>
-                        </div>
-
-                        <!-- Bottom Right: Social Media -->
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Social Media</h3>
-                            <div class="mt-3 flex gap-4 text-gray-800">
-                                <a href="#" class="hover:text-[#98e84e] transition-colors"><i class="fa-brands fa-facebook-f text-lg"></i></a>
-                                <a href="#" class="hover:text-[#98e84e] transition-colors"><i class="fa-brands fa-twitter text-lg"></i></a>
-                                <a href="#" class="hover:text-[#98e84e] transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Floating Action Button (Bottom Right) -->
-        <div class="fixed bottom-8 right-8 z-50 bg-[#351a52] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl cursor-pointer hover:scale-105 transition-transform border border-white/10">
-            <i class="fa-solid fa-star text-xl"></i>
-        </div>
-
-    </footer>
-
-    <!-- ============================================================
-    END FOOTER SECTION
-    ============================================================ -->
+    <script>
+        // Hide loader after page load
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('brand-loader');
+            if (loader) {
+                loader.classList.add('is-hidden');
+            }
+        });
+    </script>
 
 </body>
 

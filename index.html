@@ -56,38 +56,29 @@
             isolation: isolate;
         }
 
-        main section::before {
-            content: "";
+        .section-layer-bg {
             position: absolute;
-            width: 220px;
-            height: 220px;
-            top: 20px;
-            right: -76px;
-            background-image: url("img/branding_guide/icon.png");
-            background-repeat: no-repeat;
-            background-size: contain;
-            opacity: 0.08;
-            pointer-events: none;
-            z-index: -1;
-            filter: grayscale(1) contrast(0.7);
+            inset: 0;
+            z-index: 0;
         }
 
-        main section:nth-of-type(odd)::before {
-            left: -76px;
-            right: auto;
-            transform: scaleX(-1) rotate(-8deg);
+        .section-layer-content {
+            position: relative;
+            z-index: 2;
         }
 
-        .section-hero::before,
-        .section-services::before,
-        .section-testimonials::before,
-        .section-cta::before {
-            opacity: 0.14;
-            filter: none;
+        /* ── Gradient text utility ── */
+        .gradient-text {
+            background: linear-gradient(135deg, #ed1c24 0%, #fac56e 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
+        /* ── Hero – no margin, no icon overlay ── */
         .section-hero {
-            margin-bottom: var(--section-gap);
+            background: linear-gradient(135deg, #09111a 0%, #101b29 52%, #0b1118 100%);
+            /* margin-bottom removed to connect with next section */
         }
 
         .section-about,
@@ -138,13 +129,6 @@
             box-shadow: 0 14px 34px rgba(0, 0, 0, 0.11);
         }
 
-        .brand-pill {
-            border: 1px solid rgba(124, 123, 123, 0.28);
-            background: rgba(255, 255, 255, 0.84);
-            color: #2a2b2f;
-            letter-spacing: 0.14em;
-        }
-
         .brand-primary-btn {
             background: var(--brand-red);
             color: #fff;
@@ -154,11 +138,6 @@
         .brand-primary-btn:hover {
             background: var(--brand-red-dark);
             box-shadow: 0 14px 34px rgba(237, 28, 36, 0.34);
-        }
-
-        .brand-icon-chip {
-            border: 1px solid rgba(216, 180, 120, 0.46);
-            background: linear-gradient(145deg, rgba(250, 197, 110, 0.26), rgba(250, 197, 110, 0.1));
         }
 
         .brand-outline-button {
@@ -173,10 +152,6 @@
             background: rgba(237, 28, 36, 0.06) !important;
         }
 
-        .brand-footer-link:hover {
-            color: var(--brand-red) !important;
-        }
-
         .section-hero .inline-flex.rounded-full.bg-white\/10 {
             background: rgba(255, 255, 255, 0.14);
             border-color: rgba(250, 197, 110, 0.38);
@@ -186,154 +161,81 @@
             text-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
         }
 
-        .section-hero .absolute.bottom-8.right-6 {
-            border: 1px solid rgba(18, 18, 18, 0.08);
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
-        }
-
-        .section-about {
-            background: linear-gradient(180deg, #ffffff 0%, #f4f4f5 100%);
-        }
-
-        .section-about .aspect-\[3\/4\] {
-            border: 1px solid rgba(18, 18, 18, 0.08);
-            box-shadow: 0 16px 38px rgba(0, 0, 0, 0.09);
-        }
-
-        .section-about h2,
-        .section-why h2,
-        .section-industries h1,
-        .section-blog h2 {
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: #18191c;
-        }
-
-        .section-services {
-            background: linear-gradient(145deg, #0b0b0d 0%, #18181d 45%, #111114 100%);
-        }
-
-        .section-services .rounded-2xl.p-8 {
-            border-color: rgba(250, 197, 110, 0.18) !important;
-            background: linear-gradient(180deg, #17181d 0%, #111116 100%);
-        }
-
-        .section-services .rounded-2xl.p-8:hover {
-            box-shadow: 0 0 0 1px rgba(250, 197, 110, 0.24), 0 20px 40px rgba(0, 0, 0, 0.36), 0 0 30px rgba(237, 28, 36, 0.25);
-            transform: translateY(-4px);
-        }
-
-        .section-services h2 {
-            color: #f3f3f4;
-        }
-
-        .section-why {
+        /* ── Floating card (white background, reduced width) ── */
+        .floating-card {
             background: #ffffff;
+            border: 1px solid rgba(18, 18, 18, 0.06);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.02);
+            border-radius: 1.5rem;
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
         }
 
-        .section-why .w-2\.5.h-2\.5 {
-            background: linear-gradient(135deg, var(--brand-red), var(--brand-gold));
-            border-radius: 3px;
-        }
-
-        .section-industries {
-            background: linear-gradient(180deg, #f5f5f6 0%, #ececef 100%);
-        }
-
-        .section-industries button {
-            border-radius: 999px;
-            font-weight: 500;
-        }
-
-        .section-industries .rounded-3xl {
-            border-color: rgba(18, 18, 18, 0.08);
-            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
-        }
-
-        .section-testimonials {
-            background: #09090a;
-        }
-
-        .section-testimonials .bg-white.rounded-2xl {
-            border: 1px solid rgba(237, 28, 36, 0.16);
-        }
-
-        .section-testimonials .bg-white.rounded-2xl:hover {
+        .floating-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 32px 72px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(237, 28, 36, 0.06);
         }
 
-        .section-blog {
-            background: linear-gradient(180deg, #ffffff 0%, #f4f4f5 100%);
-        }
-
-        .section-blog .group .rounded-2xl {
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .section-blog .absolute.top-4.left-4.bg-red-600 {
-            background: linear-gradient(90deg, var(--brand-red), #f0454b);
-        }
-
-        .section-cta {
-            background: #0b0b0d;
-        }
-
-        .section-cta::after {
-            content: "";
-            position: absolute;
-            width: 42vw;
-            height: 42vw;
-            min-width: 360px;
-            min-height: 360px;
-            right: -12vw;
-            bottom: -18vw;
+        /* ── Loader ── */
+        .brand-loader {
+            position: fixed;
+            top: 102px;
+            left: 1.5rem;
+            z-index: 55;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1rem;
             border-radius: 999px;
-            background: radial-gradient(circle at 48.825% 50%, #fac56e 0%, #f4bb68 22%, #ed1c24 70%);
-            opacity: 0.35;
-            z-index: -1;
+            border: 1px solid rgba(250, 197, 110, 0.25);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            background: rgba(12, 13, 16, 0.86);
+            transition: opacity 320ms ease, visibility 320ms ease;
+        }
+
+        .brand-loader.is-hidden {
+            opacity: 0;
+            visibility: hidden;
             pointer-events: none;
         }
 
-        .section-cta .brand-orb {
-            position: absolute;
-            left: -80px;
-            top: 22%;
-            width: 230px;
-            height: 230px;
-            opacity: 0.18;
-            pointer-events: none;
-            filter: grayscale(1);
+        .brand-loader-inner {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
         }
 
-        .section-cta .brand-orb.right {
-            left: auto;
-            right: -70px;
-            top: auto;
-            bottom: -40px;
-            transform: rotate(18deg) scale(1.1);
-        }
-
-        footer {
-            background-color: #070708;
-        }
-
-        footer .bg-white.rounded-\[2\.5rem\] {
-            border: 1px solid rgba(18, 18, 18, 0.08);
-        }
-
-        footer h3 {
-            letter-spacing: -0.015em;
-        }
-
-        footer form {
-            border-color: rgba(124, 123, 123, 0.3) !important;
-        }
-
-        footer input:focus {
-            outline: none;
-            box-shadow: inset 0 0 0 1px rgba(237, 28, 36, 0.32);
+        .brand-loader-ring {
+            width: 22px;
+            height: 22px;
             border-radius: 999px;
+            border: 2px solid rgba(255, 255, 255, 0.14);
+            border-top-color: var(--brand-red);
+            border-right-color: var(--brand-gold);
+            animation: brand-spin 1s linear infinite;
+            display: grid;
+            place-items: center;
+        }
+
+        .brand-loader-ring img {
+            width: 10px;
+            height: 10px;
+            object-fit: contain;
+            filter: saturate(1.1);
+        }
+
+        .brand-loader-text {
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.1em;
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        @keyframes brand-spin {
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes brand-fade-up {
@@ -348,186 +250,88 @@
             }
         }
 
-        .section-about .max-w-6xl,
-        .section-services .max-w-7xl,
-        .section-why .max-w-6xl,
-        .section-industries .max-w-7xl,
-        .section-testimonials .max-w-7xl,
-        .section-blog .max-w-7xl,
-        .section-cta .max-w-4xl {
+        .section-hero .section-layer-content {
             animation: brand-fade-up 680ms ease-out both;
         }
 
         @media (max-width: 1024px) {
-            .section-hero {
-                margin-bottom: 4rem;
-            }
-
-            .section-about,
-            .section-services,
-            .section-why,
-            .section-industries,
-            .section-testimonials,
-            .section-blog,
-            .section-cta {
-                margin-bottom: 4rem;
-            }
+            /* No margin on hero, so keep as is */
         }
 
         @media (max-width: 768px) {
-            main section::before {
-                width: 132px;
-                height: 132px;
-                opacity: 0.1;
-                right: -44px;
-            }
-
-            main section:nth-of-type(odd)::before {
-                left: -44px;
-            }
-
-            .section-cta::after {
-                width: 72vw;
-                height: 72vw;
-            }
-
-            .section-cta .brand-orb {
-                width: 140px;
-                height: 140px;
-                opacity: 0.14;
+            .floating-card {
+                max-width: 90% !important;
+                right: 1rem !important;
+                bottom: 1rem !important;
             }
         }
     </style>
 </head>
 
-<!-- <body class="bg-white antialiased">  -->
-
 <body class="antialiased">
 
+    <!-- Loader -->
+    <div id="brand-loader" class="brand-loader" role="status" aria-live="polite" aria-label="Loading Africore website">
+        <div class="brand-loader-inner">
+            <div class="brand-loader-ring">
+                <img src="img/branding_guide/icon.png" alt="Africore icon" />
+            </div>
+            <p class="brand-loader-text">Loading corridor intelligence</p>
+        </div>
+    </div>
+
     <!-- ============================================================
-    PHASE 1 – FLOATING NAVIGATION HEADER
+    FLOATING NAVIGATION HEADER
     ============================================================ -->
     <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 pointer-events-none">
-        <nav class="
-        flex items-center justify-between
-        w-full max-w-7xl mx-4
-        px-6 py-3
-        brand-nav backdrop-blur-lg
-        rounded-full
-        border border-white/30
-        shadow-lg
-        pointer-events-auto
-        ">
+        <nav
+            class="flex items-center justify-between w-full max-w-7xl mx-4 px-6 py-3 brand-nav backdrop-blur-lg rounded-full border border-white/30 shadow-lg pointer-events-auto">
 
             <!-- Logo -->
             <a href="/" class="flex items-center gap-3 flex-shrink-0">
                 <img src="img/africore_dark_font.png" alt="Africore Logistics" class="h-10 w-auto" />
-                <!-- 
-            <div class="leading-tight">
-                <h1 class="font-bold text-lg text-gray-900">
-                    Africore
-                </h1>
-                <span class="text-xs uppercase tracking-[0.25em] text-red-600 font-semibold">
-                    Logistics
-                </span>
-            </div> -->
             </a>
 
             <!-- Navigation -->
             <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-700">
-
-                <a href="/" class="hover:text-red-600 transition-colors">
-                    Home
-                </a>
-
-                <a href="/about" class="hover:text-red-600 transition-colors">
-                    About Us
-                </a>
+                <a href="/" class="hover:text-red-600 transition-colors">Home</a>
+                <a href="/about" class="hover:text-red-600 transition-colors">About Us</a>
 
                 <!-- Services Dropdown -->
                 <div class="relative group">
-
                     <button class="flex items-center gap-1 hover:text-red-600 transition-colors">
-
                         Our Services
-
                         <i class="fa-solid fa-chevron-down text-xs"></i>
-
                     </button>
-
                     <div
                         class="absolute left-0 mt-4 w-72 rounded-2xl bg-white shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-
-                        <a href="/services/corridor-expertise" class="block px-5 py-3 hover:bg-gray-50">
-                            Corridor Expertise
-                        </a>
-
-                        <a href="/services/integrated-supply-chain" class="block px-5 py-3 hover:bg-gray-50">
-                            Integrated Supply Chain
-                        </a>
-
-                        <a href="/services/warehousing-network" class="block px-5 py-3 hover:bg-gray-50">
-                            Warehousing Network
-                        </a>
-
-                        <a href="/services/customs-compliance" class="block px-5 py-3 hover:bg-gray-50 rounded-b-2xl">
-                            Customs Compliance
-                        </a>
-
+                        <a href="/services/corridor-expertise" class="block px-5 py-3 hover:bg-gray-50">Corridor
+                            Expertise</a>
+                        <a href="/services/integrated-supply-chain" class="block px-5 py-3 hover:bg-gray-50">Integrated
+                            Supply Chain</a>
+                        <a href="/services/warehousing-network" class="block px-5 py-3 hover:bg-gray-50">Warehousing
+                            Network</a>
+                        <a href="/services/customs-compliance"
+                            class="block px-5 py-3 hover:bg-gray-50 rounded-b-2xl">Customs Compliance</a>
                     </div>
-
                 </div>
 
-                <a href="/corridors" class="hover:text-red-600 transition-colors">
-                    Geographic Footprints
-                </a>
-
-                <a href="/industries" class="hover:text-red-600 transition-colors">
-                    Industries
-                </a>
-
-                <a href="/why-africore" class="hover:text-red-600 transition-colors">
-                    Why Africore
-                </a>
-
-                <a href="/resources" class="hover:text-red-600 transition-colors">
-                    Resources
-                </a>
-
+                <!-- <a href="/corridors" class="hover:text-red-600 transition-colors">Geographic Footprints</a> -->
+                <a href="/industries" class="hover:text-red-600 transition-colors">Industries</a>
+                <a href="/why-africore" class="hover:text-red-600 transition-colors">Why Africore</a>
+                <!-- <a href="/resources" class="hover:text-red-600 transition-colors">Resources</a> -->
             </div>
 
             <!-- Right Actions -->
             <div class="hidden md:flex items-center gap-3">
-
-                <!-- Secondary CTA -->
-                <a href="/portal" class="brand-outline-button
-                px-5 py-2.5
-                text-sm font-semibold
-                border
-                rounded-full
-                transition">
-
-                    Client Portal
-
-                </a>
-
-                <!-- Primary CTA -->
-                <a href="/contact" class="
-                px-6 py-2.5
-                text-sm font-semibold
-                text-white
-                bg-red-600
-                hover:bg-red-700
-                rounded-full
-                transition
-                shadow-lg">
-
+                <a href="/portal"
+                    class="brand-outline-button px-5 py-2.5 text-sm font-semibold border rounded-full transition">Client
+                    Portal</a>
+                <a href="/contact"
+                    class="px-6 py-2.5 text-sm font-semibold text-white bg-red-600 hover:bg-red-700 rounded-full transition shadow-lg">
                     Get a Quote
-
                     <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-
                 </a>
-
             </div>
 
             <!-- Mobile Menu Button -->
@@ -539,267 +343,119 @@
     </header>
 
     <!-- ============================================================
-    PHASE 2 – FULL‑SCREEN HERO
+    MAIN
     ============================================================ -->
     <main>
 
+        <!-- ============================================================
+        HERO – with gradient text and floating operations card
+        ============================================================ -->
         <section class="section-hero relative min-h-screen flex items-center overflow-hidden">
 
             <!-- Background -->
-            <div class="absolute inset-0 -z-10">
-
+            <div class="section-layer-bg bg-[#0b1118]">
                 <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1800&h=1000&fit=crop&auto=format"
                     alt="Container ship and logistics operations" class="w-full h-full object-cover" />
-
-                <!-- Corporate overlay -->
                 <div class="absolute inset-0 bg-black/55"></div>
-
                 <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
-
             </div>
 
-
             <!-- Main container -->
-            <div class="relative w-full max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
+            <div class="section-layer-content w-full max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
 
                     <!-- LEFT CONTENT -->
                     <div class="lg:col-span-7 text-white space-y-8">
 
+                        <!-- <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md border border-white/20">
+                            <span class="text-sm font-medium">Integrated Logistics Across Africa</span>
+                        </div> -->
 
-                        <div
-                            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
-
-                            <img src="img/branding_guide/icon.png" alt="Brand icon"
-                                class="h-4 w-4 object-contain opacity-90" />
-
-                            <span class="text-sm font-medium">
-                                Integrated Logistics Across Africa
-                            </span>
-
-                        </div>
-
-
-
-                        <h1 class="
-                text-5xl sm:text-6xl md:text-7xl lg:text-8xl
-                font-bold
-                leading-[1.05]
-                tracking-tight
-                ">
-
+                        <!-- Gradient headline -->
+                        <h1
+                            class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight">
                             Agile, Transparent &
-
-                            <span class="text-red-500">
-                                Cost-Effective
-                            </span>
-
+                            <span class="gradient-text">Cost‑Effective</span>
                             Logistics Across Africa
-
                         </h1>
 
-
-
-                        <p class="
-                text-lg md:text-xl
-                max-w-xl
-                text-white/80
-                leading-relaxed
-                ">
-
-                            Your single point of contact for seamless cross-border freight,
+                        <p class="text-lg md:text-xl max-w-xl text-white/80 leading-relaxed">
+                            Your single point of contact for seamless cross‑border freight,
                             customs clearance, warehousing, and supply chain solutions
                             across Southern and Central Africa.
-
                         </p>
 
-
-
-                        <!-- Buttons -->
                         <div class="flex flex-wrap gap-4 pt-3">
-
-
-                            <a href="/contact" class="
-                    inline-flex items-center
-                    px-8 py-4
-                    bg-red-600
-                    hover:bg-red-700
-                    text-white
-                    font-semibold
-                    rounded-full
-                    transition
-                    shadow-lg
-                    ">
-
+                            <a href="/contact"
+                                class="inline-flex items-center px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-full transition shadow-lg">
                                 Get a Quote
-
                                 <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-
                             </a>
-
-
-
-                            <a href="/corridors" class="
-                    inline-flex items-center
-                    px-8 py-4
-                    border
-                    border-white/40
-                    hover:border-white
-                    text-white
-                    font-medium
-                    rounded-full
-                    transition
-                    backdrop-blur-sm
-                    ">
-
+                            <a href="/corridors"
+                                class="inline-flex items-center px-8 py-4 border border-white/40 hover:border-white text-white font-medium rounded-full transition backdrop-blur-sm">
                                 Explore Our Corridors
-
                                 <i class="fa-solid fa-map-location-dot ml-2 text-sm"></i>
-
                             </a>
-
-
                         </div>
-
-
                     </div>
-
-
 
                     <!-- RIGHT SPACE -->
                     <div class="lg:col-span-5"></div>
-
-
                 </div>
 
-
-
-
-                <!-- FLOATING OPERATION CARD -->
-
+                <!-- ============================================================
+                FLOATING OPERATIONS CARD – white background, reduced width, positioned right
+                ============================================================ -->
                 <div class="
-        absolute
-        bottom-8
-        right-6
-        lg:bottom-12
-        lg:right-12
-
-        w-full
-        max-w-md
-
-        bg-white/95
-        backdrop-blur-md
-
-        rounded-2xl
-
-        p-6
-
-        shadow-2xl
-
-        border border-white/20
-
-        ">
-
+                    absolute
+                    bottom-8
+                    right-6
+                    lg:bottom-12
+                    lg:right-12
+                    w-full
+                    max-w-sm
+                    floating-card
+                    p-6
+                ">
 
                     <div class="flex items-center justify-between mb-5">
-
                         <h3 class="font-bold text-gray-900 text-lg">
                             Africore Operations
                         </h3>
-
-
-                        <div class="
-                w-10 h-10
-                rounded-full
-                bg-red-100
-                flex items-center justify-center
-                ">
-
+                        <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
                             <i class="fa-solid fa-truck-fast text-red-600"></i>
-
                         </div>
-
                     </div>
-
-
 
                     <div class="space-y-4">
-
-
-                        <div class="flex justify-between border-b pb-3">
-
-                            <span class="text-gray-500 text-sm">
-                                Countries Covered
-                            </span>
-
-                            <span class="font-bold text-red-600 text-xl">
-                                8+
-                            </span>
-
+                        <div class="flex justify-between border-b border-gray-100 pb-3">
+                            <span class="text-gray-500 text-sm">Countries Covered</span>
+                            <span class="font-bold text-red-600 text-xl">8+</span>
                         </div>
-
-
-
-                        <div class="flex justify-between border-b pb-3">
-
-                            <span class="text-gray-500 text-sm">
-                                Logistics Corridors
-                            </span>
-
-                            <span class="font-bold text-red-600 text-xl">
-                                SADC
-                            </span>
-
+                        <div class="flex justify-between border-b border-gray-100 pb-3">
+                            <span class="text-gray-500 text-sm">Logistics Corridors</span>
+                            <span class="font-bold text-red-600 text-xl">SADC</span>
                         </div>
-
-
-
                         <div class="flex justify-between">
-
-                            <span class="text-gray-500 text-sm">
-                                Core Services
-                            </span>
-
-                            <span class="font-bold text-red-600 text-xl">
-                                4
-                            </span>
-
+                            <span class="text-gray-500 text-sm">Core Services</span>
+                            <span class="font-bold text-red-600 text-xl">4</span>
                         </div>
-
-
                     </div>
 
-
-
-
-                    <div class="
-            mt-5
-            pt-4
-            border-t
-            text-xs
-            text-gray-500
-            text-center
-            ">
-
-
+                    <div class="mt-5 pt-4 border-t border-gray-100 text-xs text-gray-500 text-center">
                         <i class="fa-solid fa-circle-check text-red-600 mr-1"></i>
-
                         Freight • Customs • Warehousing • Tracking
-
-
                     </div>
-
-
 
                 </div>
-
-
+                <!-- END floating card -->
 
             </div>
+            <!-- end section-layer-content -->
 
         </section>
+
         <!-- ============================================================
         PHASE 2.5 – ABOUT US / DRIVING CHANGE SECTION
         ============================================================ -->
@@ -812,8 +468,7 @@
                         class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 bg-gray-50 overflow-hidden">
                         <img src="img/branding_guide/icon.png" alt="Brand element" class="h-6 w-6 object-contain" />
                     </div>
-                    <span
-                        class="brand-pill inline-block px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">
+                    <span class="brand-pill inline-block px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">
                         About Us
                     </span>
                 </div>
@@ -887,9 +542,27 @@
                     currentIndex: 0,
                     visibleCards: 1,
                     services: [
-                        { title: 'Integrated Freight Solutions', icon: 'fa-truck-fast', bulletPoints: ['Coordinated road freight', 'Rail freight solutions', 'Route optimization', 'Carrier management', 'Real-time tracking'] },
-                        { title: 'Customs & Trade Compliances', icon: 'fa-file-shield', bulletPoints: ['Custom brokerage', 'Tariff classification', 'Documentation Processing', 'Import/Export compliance', 'Multi-country regulatory handling'] },
-                        { title: 'Smart Warehousing Solutions   ', icon: 'fa-warehouse', bulletPoints: ['Short-term storage', 'Long-term storage', 'Inventory management', 'Cross-docking', 'Repacking', 'Labelling'] }
+                        {
+                            title: 'Integrated Freight Solutions',
+                            icon: 'fa-truck-fast',
+                            route: '/services/integrated-supply-chain',
+                            description: 'Road and rail freight orchestration connecting Dar es Salaam, Tunduma, Kasumbalesa, Lusaka, and Johannesburg.',
+                            bulletPoints: ['Coordinated road freight', 'Rail freight solutions', 'Route optimization', 'Carrier management', 'Daily tracking reports']
+                        },
+                        {
+                            title: 'Customs & Trade Compliance',
+                            icon: 'fa-file-shield',
+                            route: '/services/customs-compliance',
+                            description: 'In-house corridor clearance teams coordinating TRA, ZRA, SARS, and DGM processes for compliant border movement.',
+                            bulletPoints: ['Custom brokerage', 'Tariff classification', 'Pre-clearance documentation', 'Import/export compliance', 'Multi-country regulatory handling']
+                        },
+                        {
+                            title: 'Smart Warehousing Solutions',
+                            icon: 'fa-warehouse',
+                            route: '/services/warehousing-network',
+                            description: 'Flexible storage and cross-docking near ports, inland depots, and key East and Southern Africa trade corridors.',
+                            bulletPoints: ['Short-term and long-term storage', 'Inventory management', 'Cross-docking', 'Repacking and labelling', 'Buffer stock planning']
+                        }
                     ],
                     init() {
                         const updateVisibleCards = () => {
@@ -962,11 +635,20 @@
                                     <h3 class="text-white text-2xl font-medium mb-3" x-text="service.title"></h3>
 
                                     <!-- Description -->
-                                    <p class="text-gray-400 text-base leading-relaxed mb-6 flex-grow"
-                                        x-text="service.bulletPoints.join(', ')"></p>
+                                    <p class="text-gray-400 text-sm leading-relaxed mb-4" x-text="service.description">
+                                    </p>
+
+                                    <ul class="space-y-2 text-gray-300 text-sm mb-6 flex-grow">
+                                        <template x-for="point in service.bulletPoints" :key="point">
+                                            <li class="flex items-start gap-2">
+                                                <i class="fa-solid fa-circle-check text-red-600 mt-1 text-xs"></i>
+                                                <span x-text="point"></span>
+                                            </li>
+                                        </template>
+                                    </ul>
 
                                     <!-- View Detail Button -->
-                                    <a href="/services"
+                                    <a :href="service.route"
                                         class="inline-block bg-black text-white text-sm font-medium px-6 py-2.5 rounded-full self-start hover:bg-gray-900 transition">
                                         View detail
                                     </a>
@@ -974,7 +656,8 @@
                                     <!-- Bottom Decorative Line-art Graphic (Absolute to avoid breaking layout) -->
                                     <div
                                         class="absolute bottom-4 right-4 opacity-15 pointer-events-none select-none z-0">
-                                        <img src="img/branding_guide/icon.png" alt="Brand icon" class="h-20 w-20 object-contain" />
+                                        <img src="img/branding_guide/icon.png" alt="Brand icon"
+                                            class="h-20 w-20 object-contain" />
                                     </div>
 
                                 </div>
@@ -1171,11 +854,36 @@
                     currentIndex: 0,
                     visibleCards: 1,
                     testimonials: [
-                        { name: 'Emma Carter', role: 'Logistics Manager', image: 'https://i.pravatar.cc/150?u=emma', text: 'Africore helped us cut logistics emissions while ensuring timely deliveries. A true sustainability partner.' },
-                        { name: 'Ethan Wilson', role: 'Supply Head', image: 'https://i.pravatar.cc/150?u=ethan', text: 'Highly recommend it for businesses serious about optimizing their green supply chain networks.' },
-                        { name: 'James Turner', role: 'Green Advisor', image: 'https://i.pravatar.cc/150?u=james', text: 'Thanks to Africore Transportation, our last-mile deliveries are now 100% emission-free and reliable.' },
-                        { name: 'Olivia Brown', role: 'Enviro Lead', image: 'https://i.pravatar.cc/150?u=olivia', text: 'It\'s great to see a logistics partner that shares our values for a cleaner, more sustainable planet.' },
-                        { name: 'David Lee', role: 'Supply Chain Head', image: 'https://i.pravatar.cc/150?u=david', text: 'Efficiency and sustainability in one seamless service. Africore truly understands modern supply chains.' }
+                        {
+                            name: 'Asha Msuya',
+                            role: 'Head of Exports, Kilimanjaro Fresh Exports (Tanzania)',
+                            image: 'https://i.pravatar.cc/150?u=asha-msuya',
+                            text: 'Africore stabilised our Dar es Salaam-to-Lusaka cold-chain timelines, reducing border delays and product losses during peak season.'
+                        },
+                        {
+                            name: 'Peter Mhando',
+                            role: 'Operations Director, Mwanza Minerals Supply',
+                            image: 'https://i.pravatar.cc/150?u=peter-mhando',
+                            text: 'Their customs and corridor planning around Tanzania and Zambia gave us predictable lead times for mining equipment imports.'
+                        },
+                        {
+                            name: 'Neema Kweka',
+                            role: 'Supply Chain Lead, Dar Retail Distribution',
+                            image: 'https://i.pravatar.cc/150?u=neema-kweka',
+                            text: 'One team now manages transport, clearance, and warehousing for our regional FMCG flow. Visibility is excellent and reporting is daily.'
+                        },
+                        {
+                            name: 'Moses Nyerere',
+                            role: 'Procurement Manager, Tanga Build & Infra',
+                            image: 'https://i.pravatar.cc/150?u=moses-nyerere',
+                            text: 'For project cargo into Tanzania, Africore coordinated every handoff cleanly. We hit construction milestones without logistics surprises.'
+                        },
+                        {
+                            name: 'Rehema Mjema',
+                            role: 'Country Logistics Lead, EastAid Relief Network',
+                            image: 'https://i.pravatar.cc/150?u=rehema-mjema',
+                            text: 'During urgent relief deployments, their team handled corridor clearance and last-mile scheduling with speed and professionalism.'
+                        }
                     ],
                     init() {
                         const updateVisibleCards = () => {
@@ -1214,14 +922,14 @@
                  }" x-init="init()">
 
             <!-- Background Image -->
-            <div class="absolute inset-0 -z-10">
+            <div class="section-layer-bg bg-[#0b0b0d]">
                 <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1800&auto=format&fit=crop"
                     alt="Aerial view of logistics facility" class="w-full h-full object-cover">
                 <!-- Heavy Dark Overlay -->
                 <div class="absolute inset-0 bg-black/70"></div>
             </div>
 
-            <div class="relative max-w-7xl mx-auto px-4 md:px-6 text-center">
+            <div class="section-layer-content max-w-7xl mx-auto px-4 md:px-6 text-center">
 
                 <!-- Header Content -->
                 <div class="mb-14">
@@ -1356,8 +1064,7 @@
                 <!-- Header Section -->
                 <div class="flex flex-col md:flex-row justify-between items-end md:items-center gap-6 mb-12">
                     <div>
-                        <span
-                            class="brand-pill inline-block rounded-full px-4 py-1.5 text-[10px] font-bold uppercase">
+                        <span class="brand-pill inline-block rounded-full px-4 py-1.5 text-[10px] font-bold uppercase">
                             Our Blog
                         </span>
                         <h2 class="text-3xl md:text-5xl font-medium text-gray-900 leading-tight mt-3 max-w-2xl">
@@ -1431,44 +1138,46 @@
         <section class="section-cta relative py-24 md:py-32 overflow-hidden flex items-center justify-center">
 
             <!-- Background Image: Dark Forest with Sunrays -->
-            <div class="absolute inset-0 -z-10">
+            <div class="section-layer-bg bg-[#08090b]">
                 <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop"
                     alt="Aerial view of dense forest canopy" class="w-full h-full object-cover">
                 <!-- Heavy Dark Overlay for Text Readability -->
                 <div class="absolute inset-0 bg-black/65"></div>
             </div>
 
-            <div class="relative max-w-4xl mx-auto px-4 md:px-6 text-center z-10">
+            <div class="section-layer-content max-w-4xl mx-auto px-4 md:px-6 text-center">
 
                 <img src="img/branding_guide/icon.png" alt="Brand icon"
                     class="mx-auto h-14 w-14 object-contain opacity-95 mb-6" />
 
                 <!-- Headline -->
                 <h2 class="text-4xl md:text-6xl font-medium text-white leading-tight drop-shadow-md">
-                    Join the mission for smarter,<br />cleaner transportation
+                    Ready to streamline cross-border<br />logistics across Tanzania and SADC?
                 </h2>
 
                 <!-- Subtext -->
                 <p class="text-gray-200 max-w-2xl mx-auto mt-4 text-sm md:text-base leading-relaxed drop-shadow-sm">
-                    Let's work together to reduce emissions, optimize our operations, and make a positive impact on the
-                    planet.
+                    Partner with Africore for integrated freight, customs clearance, and warehousing support across
+                    high-volume regional corridors.
                 </p>
 
                 <!-- CTA Button (Stylized to Africore Red) -->
                 <div class="mt-8">
                     <a href="/contact"
                         class="inline-flex items-center px-8 py-3.5 bg-red-600 hover:bg-red-700 text-white font-medium rounded-full shadow-lg transition-colors shadow-red-900/30">
-                        Talk to our experts
+                        Request a corridor quote
                     </a>
                 </div>
 
             </div>
 
             <div class="brand-orb">
-                <img src="img/branding_guide/icon.png" alt="Brand graphic element" class="w-full h-full object-contain" />
+                <img src="img/branding_guide/icon.png" alt="Brand graphic element"
+                    class="w-full h-full object-contain" />
             </div>
             <div class="brand-orb right">
-                <img src="img/branding_guide/icon.png" alt="Brand graphic element" class="w-full h-full object-contain" />
+                <img src="img/branding_guide/icon.png" alt="Brand graphic element"
+                    class="w-full h-full object-contain" />
             </div>
 
         </section>
@@ -1476,112 +1185,126 @@
         <!-- ============================================================
     PHASE 3 – FOOTER SECTION
     ============================================================ -->
-    <footer class="relative w-full min-h-screen bg-[url('img/desktop.png')] bg-cover bg-center bg-no-repeat flex flex-col items-center">
-        
-        <!-- Background Overlay (Optional: adds depth to text if image is too bright) -->
-        <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+        <footer
+            class="relative w-full min-h-screen bg-[url('img/desktop.png')] bg-cover bg-center bg-no-repeat flex flex-col items-center">
 
-        <!-- Inner Container -->
-        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 pt-20 pb-10 flex flex-col gap-6">
-            
-        
-            <!-- Main Footer Cards Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                
-                                <!-- Left Card -->
-                <div class="bg-white rounded-[2.5rem] p-10 flex flex-col justify-between shadow-2xl min-h-[400px]">
-                    <div>
-                        <!-- Logo Icon -->
-                        <img src="img/africore_logo.jpeg" class="w-32 h-auto" alt="Africore Logo" srcset="">
-                        
-                        <!-- Headline -->
-                        <h2 class="text-[32px] leading-tight font-normal text-gray-900 mt-2">
-                            We believe <span class="font-bold">real change</span> starts<br>
-                            deep within the supply chain.
-                        </h2>
-                        
-                        <!-- Form Section -->
-                        <div class="mt-8">
-                            <p class="text-sm text-gray-500 mb-3">Join our eco-supply community.</p>
-                            <form class="flex items-center bg-white border border-gray-200 rounded-full p-1.5 w-full max-w-sm shadow-sm">
-                                <input type="email" placeholder="Enter your email" class="flex-1 bg-transparent border-none outline-none px-4 py-1.5 text-sm text-gray-700 placeholder-gray-400">
-                                <button type="submit" class="bg-red-600 text-white font-medium px-6 py-2 rounded-full hover:bg-red-700 transition-colors text-sm">
-                                    Subscribe
-                                </button>
-                            </form>
+            <!-- Background Overlay (Optional: adds depth to text if image is too bright) -->
+            <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+
+            <!-- Inner Container -->
+            <div class="relative z-10 w-full max-w-7xl mx-auto px-4 pt-20 pb-10 flex flex-col gap-6">
+
+
+                <!-- Main Footer Cards Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <!-- Left Card -->
+                    <div class="bg-white rounded-[2.5rem] p-10 flex flex-col justify-between shadow-2xl min-h-[400px]">
+                        <div>
+                            <!-- Logo Icon -->
+                            <img src="img/africore_logo.jpeg" class="w-32 h-auto" alt="Africore Logo" srcset="">
+
+                            <!-- Headline -->
+                            <h2 class="text-[32px] leading-tight font-normal text-gray-900 mt-2">
+                                We believe <span class="font-bold">real change</span> starts<br>
+                                deep within the supply chain.
+                            </h2>
+
+                            <!-- Form Section -->
+                            <div class="mt-8">
+                                <p class="text-sm text-gray-500 mb-3">Get monthly corridor updates and customs insights.
+                                </p>
+                                <form
+                                    class="flex items-center bg-white border border-gray-200 rounded-full p-1.5 w-full max-w-sm shadow-sm">
+                                    <input type="email" placeholder="Work email"
+                                        class="flex-1 bg-transparent border-none outline-none px-4 py-1.5 text-sm text-gray-700 placeholder-gray-400">
+                                    <button type="submit"
+                                        class="bg-red-600 text-white font-medium px-6 py-2 rounded-full hover:bg-red-700 transition-colors text-sm">
+                                        Subscribe
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Text (Replaced here) -->
+                        <p class="text-xs text-gray-400 mt-10">© 2026 Africore Logistics. All rights reserved.</p>
+                    </div>
+                    <!-- Right Card -->
+                    <div class="bg-white rounded-[2.5rem] p-10 shadow-2xl min-h-[400px]">
+                        <!-- Inner 2x2 Grid -->
+                        <div class="grid grid-cols-2 gap-y-10 gap-x-6 h-full">
+
+                            <!-- Top Left: Pages -->
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Pages</h3>
+                                <div class="grid grid-cols-2 gap-x-4 gap-y-1 mt-3 text-sm text-gray-600">
+                                    <div class="flex flex-col gap-1.5">
+                                        <a href="/" class="brand-footer-link transition-colors">Home</a>
+                                        <a href="/about" class="brand-footer-link transition-colors">About</a>
+                                        <a href="/services" class="brand-footer-link transition-colors">Services</a>
+                                        <a href="/corridors" class="brand-footer-link transition-colors">Geographies</a>
+                                    </div>
+                                    <div class="flex flex-col gap-1.5">
+                                        <a href="/industries" class="brand-footer-link transition-colors">Industries</a>
+                                        <a href="/resources" class="brand-footer-link transition-colors">Resources</a>
+                                        <a href="/portal" class="brand-footer-link transition-colors">Client Portal</a>
+                                        <a href="/contact" class="brand-footer-link transition-colors">Contact</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Top Right: Address -->
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Address</h3>
+                                <div class="mt-3 text-sm text-gray-600 leading-relaxed flex flex-col gap-4">
+                                    <p>
+                                        Africore Tanzania Desk,<br>
+                                        Ohio Street, Dar es Salaam,
+                                        Tanzania
+                                    </p>
+                                    <p>
+                                        Africore Headquarters,<br>
+                                        Johannesburg,<br>
+                                        South Africa
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Left: Contact -->
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Contact</h3>
+                                <div class="mt-3 text-sm text-gray-600 flex flex-col gap-1.5">
+                                    <a href="mailto:info@africorelogistics.com"
+                                        class="brand-footer-link transition-colors">info@africorelogistics.com</a>
+                                    <a href="tel:+27715826731" class="brand-footer-link transition-colors">+27 71 582
+                                        6731</a>
+                                    <a href="https://www.africorelogistics.com"
+                                        class="brand-footer-link transition-colors">www.africorelogistics.com</a>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Right: Social Media -->
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Social Media</h3>
+                                <div class="mt-3 flex gap-4 text-gray-800">
+                                    <a href="#" class="brand-footer-link transition-colors" aria-label="LinkedIn"
+                                        title="LinkedIn"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+                                    <a href="#" class="brand-footer-link transition-colors" aria-label="X" title="X"><i
+                                            class="fa-brands fa-x-twitter text-lg"></i></a>
+                                    <a href="#" class="brand-footer-link transition-colors" aria-label="Instagram"
+                                        title="Instagram"><i class="fa-brands fa-instagram text-lg"></i></a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-
-                    <!-- Bottom Text (Replaced here) -->
-                    <p class="text-xs text-gray-400 mt-10">© Africore 2026</p>
                 </div>
-                <!-- Right Card -->
-                <div class="bg-white rounded-[2.5rem] p-10 shadow-2xl min-h-[400px]">
-                    <!-- Inner 2x2 Grid -->
-                    <div class="grid grid-cols-2 gap-y-10 gap-x-6 h-full">
-                        
-                        <!-- Top Left: Pages -->
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Pages</h3>
-                            <div class="grid grid-cols-2 gap-x-4 gap-y-1 mt-3 text-sm text-gray-600">
-                                <div class="flex flex-col gap-1.5">
-                                    <a href="#" class="brand-footer-link transition-colors">Home</a>
-                                    <a href="#" class="brand-footer-link transition-colors">About</a>
-                                    <a href="#" class="brand-footer-link transition-colors">Service</a>
-                                    <a href="#" class="brand-footer-link transition-colors">Static</a>
-                                </div>
-                                <div class="flex flex-col gap-1.5">
-                                    <a href="#" class="brand-footer-link transition-colors">Case<br>Studies</a>
-                                    <a href="#" class="brand-footer-link transition-colors">Blog</a>
-                                    <a href="#" class="brand-footer-link transition-colors">Contact</a>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Top Right: Address -->
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Address</h3>
-                            <div class="mt-3 text-sm text-gray-600 leading-relaxed flex flex-col gap-4">
-                                <p>
-                                    123 Remote Work Avenue,<br>
-                                    San Francisco, CA 94105
-                                </p>
-                                <p>
-                                    144 Creative Street, Suite<br>
-                                    456, New York, NY 10001,<br>
-                                    USA
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Bottom Left: Contact -->
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Contact</h3>
-                            <div class="mt-3 text-sm text-gray-600 flex flex-col gap-1.5">
-                                <a href="mailto:hello@example.com" class="brand-footer-link transition-colors">hello@example.com</a>
-                                <a href="tel:+1234567890" class="brand-footer-link transition-colors">+123 456 7890</a>
-                            </div>
-                        </div>
-
-                        <!-- Bottom Right: Social Media -->
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Social Media</h3>
-                            <div class="mt-3 flex gap-4 text-gray-800">
-                                <a href="#" class="brand-footer-link transition-colors" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f text-lg"></i></a>
-                                <a href="#" class="brand-footer-link transition-colors" aria-label="Twitter" title="Twitter"><i class="fa-brands fa-twitter text-lg"></i></a>
-                                <a href="#" class="brand-footer-link transition-colors" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram text-lg"></i></a>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
             </div>
 
-        </div>
+        </footer>
 
-    </footer>
-
-    <!-- ============================================================
+        <!-- ============================================================
     END FOOTER SECTION
     ============================================================ -->
 
@@ -1595,6 +1318,43 @@
 
     <!-- Alpine.js ready -->
     <div x-data="{ loaded: true }" x-init="console.log('Alpine.js ready ✅')" class="hidden"></div>
+
+    <script>
+        (function () {
+            var loaderClosed = false;
+
+            function closeLoader() {
+                if (loaderClosed) {
+                    return;
+                }
+
+                loaderClosed = true;
+                var loader = document.getElementById("brand-loader");
+                if (!loader) {
+                    return;
+                }
+
+                loader.classList.add("is-hidden");
+                setTimeout(function () {
+                    loader.remove();
+                }, 360);
+            }
+
+            document.addEventListener("DOMContentLoaded", closeLoader);
+            window.addEventListener("load", closeLoader);
+            setTimeout(closeLoader, 1400);
+        })();
+    </script>
+
+    <script>
+        // Hide loader after page load
+        window.addEventListener('load', function () {
+            const loader = document.getElementById('brand-loader');
+            if (loader) {
+                loader.classList.add('is-hidden');
+            }
+        });
+    </script>
 
 </body>
 
